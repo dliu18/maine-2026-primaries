@@ -10,14 +10,22 @@
   <meta property="og:description" content="Ranked-choice polling analysis and simulations for the 2026 Maine primaries.">
   <meta property="og:url" content="http://dliu18.github.io/maine-2026-primaries">
   <meta property="og:image" content="http://dliu18.github.io/maine-2026-primaries/imgs/preview.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image:width" content="2400">
+  <meta property="og:image:height" content="1260">
   <meta property="og:site_name" content="Polling Ranked Choices for the 2026 Maine Primaries">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Polling Ranked Choices for the 2026 Maine Primaries">
   <meta name="twitter:description" content="Ranked-choice polling analysis and simulations for the 2026 Maine primaries.">
   <meta name="twitter:image" content="http://dliu18.github.io/maine-2026-primaries/imgs/preview.png">
   <title>Polling Ranked Choices for the 2026 Maine Primaries</title>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9786S8E7XK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-9786S8E7XK");
+  </script>
   <style>
     :root {
       --ink: #17202a;
@@ -315,6 +323,48 @@
       white-space: nowrap;
     }
 
+    .citation-ref {
+      margin-left: 2px;
+      font-size: 0.72em;
+      line-height: 0;
+      vertical-align: super;
+    }
+
+    .citation-ref a {
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .citation-notes {
+      max-width: 820px;
+      margin: 20px 0 0;
+      padding-top: 14px;
+      border-top: 1px solid var(--line-soft);
+      color: var(--muted);
+    }
+
+    .citation-notes h3 {
+      margin: 0 0 8px;
+      color: var(--ink);
+      font-size: 0.86rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .citation-notes ol {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    .analysis-section .citation-notes li {
+      max-width: 780px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
     .analysis-figure {
       position: relative;
       width: 100%;
@@ -325,7 +375,7 @@
       border-radius: 5px;
       background: #ffffff;
       box-shadow: var(--card-shadow);
-      overflow-x: auto;
+      overflow: hidden;
     }
 
     .analysis-figure figcaption {
@@ -361,7 +411,6 @@
     .analysis-static-chart {
       display: block;
       width: min(100%, 680px);
-      min-width: 520px;
       height: auto;
       margin: 0 auto;
     }
@@ -418,6 +467,24 @@
 
     .analysis-x-label {
       font-size: 9px;
+    }
+
+    .analysis-first-choice-chart .analysis-tick {
+      font-size: 12px;
+    }
+
+    .analysis-first-choice-chart .first-choice-value-label {
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .analysis-first-choice-chart .first-choice-x-label {
+      font-size: 12px;
+      font-weight: 760;
+    }
+
+    .analysis-first-choice-chart {
+      max-width: 560px;
     }
 
     .analysis-value-label,
@@ -482,7 +549,7 @@
     .analysis-transfer-small {
       position: relative;
       flex: 0 1 429px;
-      width: 429px;
+      width: min(100%, 429px);
       min-width: 0;
     }
 
@@ -506,6 +573,52 @@
       }
     }
 
+    @media (max-width: 560px) {
+      .analysis-figure {
+        margin: 18px 0 24px;
+        padding: 12px 9px 12px;
+      }
+
+      .analysis-figure figcaption {
+        padding-right: 64px;
+        font-size: 0.9rem;
+        line-height: 1.25;
+      }
+
+      .analysis-figure-caption {
+        font-size: 0.78rem !important;
+      }
+
+      .analysis-bar-label,
+      .analysis-value-label,
+      .analysis-tick,
+      .analysis-axis-label,
+      .analysis-boundary-label {
+        font-size: 9px;
+      }
+
+      .analysis-heatmap-tick,
+      .analysis-heatmap-percent {
+        font-size: 7px;
+      }
+
+      .analysis-first-choice-chart .first-choice-value-label {
+        font-size: 12px;
+      }
+
+      .analysis-first-choice-chart .first-choice-x-label {
+        font-size: 10px;
+      }
+
+      .analysis-transfer-row {
+        gap: 12px;
+      }
+
+      .analysis-transfer-small h4 {
+        font-size: 0.84rem;
+      }
+    }
+
     .analysis-example-irv-stack {
       margin: 18px 0 28px;
     }
@@ -526,6 +639,8 @@
 
     .copy-figure-button,
     .download-figure-button {
+      display: inline-grid;
+      place-items: center;
       appearance: none;
       border: 1px solid rgba(23, 32, 42, 0.16);
       border-radius: 4px;
@@ -537,7 +652,21 @@
       font-size: 0.72rem;
       font-weight: 800;
       line-height: 1;
-      padding: 6px 8px;
+      min-width: 30px;
+      height: 30px;
+      padding: 5px 7px;
+      white-space: nowrap;
+    }
+
+    .copy-figure-button svg,
+    .download-figure-button svg {
+      width: 16px;
+      height: 16px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .copy-figure-button:hover,
@@ -553,6 +682,28 @@
     .download-figure-button:disabled {
       cursor: default;
       opacity: 0.72;
+    }
+
+    @media (max-width: 560px) {
+      .figure-actions {
+        top: 6px;
+        right: 6px;
+        gap: 4px;
+      }
+
+      .copy-figure-button,
+      .download-figure-button {
+        min-width: 28px;
+        height: 28px;
+        padding: 5px 6px;
+        font-size: 0.66rem;
+      }
+
+      .copy-figure-button svg,
+      .download-figure-button svg {
+        width: 14px;
+        height: 14px;
+      }
     }
 
     .figure-tooltip {
@@ -637,6 +788,21 @@
       background: #fbe7dc;
     }
 
+    @media (max-width: 560px) {
+      .troy-jackson-delta-table th:nth-child(3),
+      .troy-jackson-delta-table th:nth-child(4),
+      .troy-jackson-delta-table td:nth-child(3),
+      .troy-jackson-delta-table td:nth-child(4) {
+        display: none;
+      }
+
+      .troy-jackson-delta-table th,
+      .troy-jackson-delta-table td {
+        padding-left: 7px;
+        padding-right: 7px;
+      }
+    }
+
     .placeholder {
       border: 1px solid var(--line);
       border-left: 4px solid var(--accent);
@@ -670,7 +836,7 @@
       border-radius: 6px;
       background: #ffffff;
       padding: 20px 20px 15px;
-      overflow-x: auto;
+      overflow: hidden;
     }
 
     .chart-title {
@@ -688,7 +854,6 @@
     .support-chart {
       display: block;
       width: 100%;
-      min-width: 720px;
       height: auto;
     }
 
@@ -752,6 +917,20 @@
     .chart-tooltip strong {
       display: block;
       margin-bottom: 3px;
+    }
+
+    @media (max-width: 560px) {
+      .chart-card {
+        padding: 14px 10px 12px;
+      }
+
+      .chart-title {
+        font-size: 0.96rem;
+      }
+
+      .chart-subtitle {
+        font-size: 0.8rem;
+      }
     }
 
 
@@ -865,6 +1044,54 @@
       }
     }
 
+    @media (max-width: 560px) {
+      .demographic-candidate-card h4 {
+        padding: 12px;
+      }
+
+      .demographic-delta-table,
+      .demographic-delta-table thead,
+      .demographic-delta-table tbody,
+      .demographic-delta-table tr,
+      .demographic-delta-table th,
+      .demographic-delta-table td {
+        display: block;
+        width: 100%;
+      }
+
+      .demographic-delta-table thead {
+        display: none;
+      }
+
+      .demographic-delta-table td {
+        border-right: 0;
+        border-bottom: 1px solid #edf0f2;
+        padding: 10px 12px;
+      }
+
+      .demographic-delta-table td:last-child {
+        border-bottom: 0;
+      }
+
+      .demographic-delta-table td::before {
+        display: block;
+        margin-bottom: 7px;
+        color: var(--muted);
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .demographic-delta-table td:first-child::before {
+        content: "Stronger Support Among Groups";
+      }
+
+      .demographic-delta-table td:last-child::before {
+        content: "Weaker Support Among Groups";
+      }
+    }
+
 
     .ballot-table-grid {
       display: grid;
@@ -942,14 +1169,13 @@
     }
 
     .tree-scroll {
-      overflow: auto;
+      overflow: hidden;
       padding: 12px 14px 16px;
     }
 
     .ballot-tree {
       display: block;
       width: 100%;
-      min-width: 860px;
       height: auto;
     }
 
@@ -1011,6 +1237,29 @@
       }
     }
 
+    @media (max-width: 560px) {
+      .table-card-heading {
+        padding: 13px 12px 11px;
+      }
+
+      .ballot-table {
+        font-size: 0.78rem;
+      }
+
+      .ballot-table th,
+      .ballot-table td {
+        padding: 8px 7px;
+      }
+
+      .tree-scroll {
+        padding: 10px 8px 12px;
+      }
+
+      .tree-node text {
+        font-size: 11px;
+      }
+    }
+
 
     .irv-simulation-stack {
       display: grid;
@@ -1019,6 +1268,7 @@
 
     .irv-card {
       width: min(100%, 760px);
+      max-width: 100%;
       margin: 0 auto;
       border: 1px solid var(--line);
       border-radius: 6px;
@@ -1117,7 +1367,7 @@
 
     .irv-visual-grid {
       display: grid;
-      grid-template-columns: minmax(0, 0.98fr) minmax(210px, 0.62fr);
+      grid-template-columns: minmax(0, 1fr) minmax(190px, 0.58fr);
       gap: 12px;
       align-items: start;
     }
@@ -1131,14 +1381,13 @@
 
     .irv-chart-wrap {
       padding: 9px 10px 7px;
-      overflow-x: auto;
+      overflow: hidden;
     }
 
     .irv-chart {
       display: block;
-      max-width: 470px;
-      min-width: 420px;
       width: 100%;
+      max-width: 100%;
       height: auto;
     }
 
@@ -1313,6 +1562,30 @@
       }
     }
 
+    @media (max-width: 560px) {
+      .irv-card-body {
+        padding: 10px;
+      }
+
+      .irv-chart-wrap {
+        padding: 8px 6px 6px;
+      }
+
+      .irv-transfer-panel {
+        padding: 9px 10px;
+      }
+
+      .irv-bar-label {
+        font-size: 10px;
+      }
+
+      .irv-bar-value,
+      .irv-majority-label,
+      .irv-y-label {
+        font-size: 10px;
+      }
+    }
+
 
     .transfer-chart-stack {
       display: grid;
@@ -1325,7 +1598,7 @@
       border-radius: 6px;
       background: #ffffff;
       padding: 16px 18px 14px;
-      overflow-x: auto;
+      overflow: hidden;
       box-shadow: var(--card-shadow);
     }
 
@@ -1344,7 +1617,6 @@
     .transfer-chart {
       display: block;
       width: min(100%, 836px);
-      min-width: 560px;
       height: auto;
       margin: 0 auto;
     }
@@ -1427,6 +1699,27 @@
       box-shadow: inset 0 0 0 1px rgba(23, 32, 42, 0.14);
     }
 
+    @media (max-width: 560px) {
+      .transfer-chart-card {
+        padding: 14px 10px 12px;
+      }
+
+      .transfer-chart-title {
+        font-size: 0.96rem;
+      }
+
+      .transfer-chart-subtitle,
+      .transfer-legend {
+        font-size: 0.76rem;
+      }
+
+      .transfer-axis-label,
+      .transfer-tick,
+      .transfer-boundary-label {
+        font-size: 10px;
+      }
+    }
+
 
     .coalition-heatmap-stack {
       display: grid;
@@ -1439,7 +1732,7 @@
       border-radius: 6px;
       background: #ffffff;
       padding: 16px 18px 14px;
-      overflow-x: auto;
+      overflow: hidden;
     }
 
     .coalition-heatmap-title {
@@ -1509,6 +1802,26 @@
       white-space: pre-line;
     }
 
+    @media (max-width: 560px) {
+      .coalition-heatmap-card {
+        padding: 14px 9px 12px;
+      }
+
+      .coalition-heatmap-title {
+        font-size: 0.92rem;
+        line-height: 1.25;
+      }
+
+      .heatmap-axis-label {
+        font-size: 10px;
+      }
+
+      .heatmap-tick,
+      .heatmap-percent {
+        font-size: 7px;
+      }
+    }
+
 
     .chart-card,
     .demographic-candidate-card,
@@ -1547,6 +1860,54 @@
         padding-top: 40px;
       }
     }
+
+    @media (max-width: 520px) {
+      header,
+      .report-nav,
+      main,
+      footer {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      header {
+        padding-top: 32px;
+        padding-bottom: 26px;
+      }
+
+      h1 {
+        font-size: clamp(1.82rem, 11vw, 2.35rem);
+      }
+
+      .authors {
+        gap: 6px 10px;
+        font-size: 0.88rem;
+      }
+
+      .report-nav {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+
+      .report-nav a {
+        font-size: 0.8rem;
+      }
+
+      main {
+        padding-top: 4px;
+        padding-bottom: 44px;
+      }
+
+      .report-section {
+        padding: 28px 0 32px;
+      }
+
+      .analysis-section p,
+      .analysis-section li {
+        font-size: 0.94rem;
+        line-height: 1.58;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1560,7 +1921,7 @@
         <a class="external-link" href="https://jugander.github.io/" target="_blank" rel="noopener noreferrer">Johan Ugander<span class="sr-only"> opens in a new tab</span></a>
       </div>
       <div class="correspondence">Correspondence: David Liu (<a href="mailto:davidliu@cornell.edu">davidliu@cornell.edu</a>)</div>
-      <div class="publication-date">Published June 2, 2026</div>
+      <div class="publication-date">Published June 3, 2026</div>
     </header>
     <nav class="report-nav" aria-label="Report navigation">
       <div class="nav-row">
@@ -1575,9 +1936,9 @@
       <section id="executive-summary" class="report-section report-section-major analysis-section">
         <h2>Executive Summary</h2>
         <p>Since 2018, Maine has used instant-runoff elections with ranked-choice ballots (often called simply “<a class="external-link" href="https://www.maine.gov/sos/elections-voting/resources-for-ranked-choice-voting" target="_blank" rel="noopener noreferrer">ranked-choice voting<span class="sr-only"> opens in a new tab</span></a>”) for all statewide primaries. With the <a class="external-link" href="https://www.maine.gov/sos/elections-voting/upcoming-elections" target="_blank" rel="noopener noreferrer">2026 Maine primaries<span class="sr-only"> opens in a new tab</span></a> quickly approaching on June 9, the latest <a class="external-link" href="https://scholars.unh.edu/cgi/viewcontent.cgi?article=1959&amp;context=survey_center_polls" target="_blank" rel="noopener noreferrer">University of New Hampshire poll<span class="sr-only"> opens in a new tab</span></a> shows that two primary races, the Democratic Gubernatorial and Democratic ME-02 House-seat primaries, are both in apparent dead heats. For the governor’s seat, the latest poll shows Troy Jackson gaining considerably on longtime frontrunner Nirav Shah, with Jackson now receiving 28.4% of first-choice votes, compared to Shah’s 28.0%. Meanwhile, in the ME-02 House seat Democratic primary, Jordan Wood barely leads a crowded field to face Republican candidate Paul LePage, with 24.5% of first-choice votes for Wood compared to 22.0% for Baldacci, 16.7% for Matthew Dunlap, and 13.6% for Paige Loud.</p>
-        <p>With such close polling margins in first-choice votes and no candidate reaching a clear majority, the transfer of votes following candidate elimination will be critical in deciding the winners of these two primary elections. While many polls for ranked-choice elections only ask about first-choice votes, these latest UNH polls are, fortunately, ranked-choice. As researchers studying ranked-choice voting, these polls thus provide unique opportunities to study such polling for competitive elections and to investigate how reliably such polls can forecast the outcome of ranked-choice elections. Analyzing these polls, we find:</p>
+        <p>With such close polling margins in first-choice votes and no candidate reaching a clear majority, the mechanics of ranked-choice voting make it challenging to forecast the outcome: as candidates get eliminated sequentially in the instant-runoff process, the transfer of votes from them to other candidates becomes critical in deciding the winners of these two primary elections. While many polls for ranked-choice elections only ask about first-choice votes, these latest UNH polls are, fortunately, ranked-choice. As researchers studying ranked-choice voting, these polls thus provide unique opportunities to study such polling for competitive elections and to investigate how reliably such polls can forecast the outcome of ranked-choice elections. Analyzing these polls, we find:</p>
         <ol class="takeaway-list">
-          <li>In the Democratic gubernatorial primary, despite the recent cross-endorsement amongst Troy Jackson, Shenna Bellows, and Hannah Pingree, Nirav Shah still receives many vote transfers, even from voters who rank Bellows or Pingree first. As a result, even though the first-choice poll results are very close, when simulating instant run-off elections based on the polls, Shah wins nearly all simulated primaries (97.4%).</li>
+          <li>In the Democratic gubernatorial primary, despite the recent cross-endorsement amongst Troy Jackson, Shenna Bellows, and Hannah Pingree, we find that Nirav Shah still receives many vote transfers, even from voters who rank Bellows or Pingree first. As a result, even though the first-choice poll results are very close, when simulating instant run-off elections based on the polls, Shah wins nearly all simulated primaries (97.4%).</li>
           <li>However, given Jackson’s strong support among younger voters, whose turnout has been rising, and the recency of the cross-endorsement, it remains possible that preferences will shift ahead of the June 9 primary. In simulated elections that yield a Jackson victory, Jackson has strong first-choice shares to offset vote transfers.</li>
           <li>In the ME-02 House Democratic primary, meanwhile, the dead heat between Wood and Baldacci in first-choice votes persists in election simulations. In our analysis, Baldacci garners greater support from vote transfers than Wood, winning 67% of simulated primaries while Jordan Wood wins 20.5%, and Matthew Dunlap wins 12.5%. Paige Loud does not win any of our simulated primaries. Most notably, the candidate who wins the highest percentage of our simulated elections, Baldacci, is not the candidate with the highest first-choice vote count (which is Wood).</li>
         </ol>
@@ -1590,59 +1951,59 @@
 
         <figure class="analysis-figure" id="gubernatorial-democratic-primary-first-choice-support">
           <figcaption>Gubernatorial Democratic Primary: First-Choice Support</figcaption>
-          <svg class="analysis-static-chart" viewBox="0 0 680 360" role="img" aria-label="Gubernatorial Democratic Primary: First-Choice Support">
-            <line class="analysis-axis" x1="54" y1="30" x2="54" y2="244"></line>
-            <line class="analysis-axis" x1="54" y1="244" x2="650" y2="244"></line>
+          <svg class="analysis-static-chart analysis-first-choice-chart" viewBox="0 0 560 360" role="img" aria-label="Gubernatorial Democratic Primary: First-Choice Support">
+            <line class="analysis-axis" x1="54" y1="34" x2="54" y2="232"></line>
+            <line class="analysis-axis" x1="54" y1="232" x2="534" y2="232"></line>
 
-            <line class="analysis-grid" x1="54" x2="650" y1="244.0" y2="244.0"></line>
-            <text class="analysis-tick" x="46" y="248.0" text-anchor="end">0%</text>
-            <line class="analysis-grid" x1="54" x2="650" y1="190.5" y2="190.5"></line>
-            <text class="analysis-tick" x="46" y="194.5" text-anchor="end">10%</text>
-            <line class="analysis-grid" x1="54" x2="650" y1="137.0" y2="137.0"></line>
-            <text class="analysis-tick" x="46" y="141.0" text-anchor="end">20%</text>
-            <line class="analysis-grid" x1="54" x2="650" y1="83.5" y2="83.5"></line>
+            <line class="analysis-grid" x1="54" x2="534" y1="232.0" y2="232.0"></line>
+            <text class="analysis-tick" x="46" y="236.0" text-anchor="end">0%</text>
+            <line class="analysis-grid" x1="54" x2="534" y1="182.5" y2="182.5"></line>
+            <text class="analysis-tick" x="46" y="186.5" text-anchor="end">10%</text>
+            <line class="analysis-grid" x1="54" x2="534" y1="133.0" y2="133.0"></line>
+            <text class="analysis-tick" x="46" y="137.0" text-anchor="end">20%</text>
+            <line class="analysis-grid" x1="54" x2="534" y1="83.5" y2="83.5"></line>
             <text class="analysis-tick" x="46" y="87.5" text-anchor="end">30%</text>
-            <line class="analysis-grid" x1="54" x2="650" y1="30.0" y2="30.0"></line>
-            <text class="analysis-tick" x="46" y="34.0" text-anchor="end">40%</text>
+            <line class="analysis-grid" x1="54" x2="534" y1="34.0" y2="34.0"></line>
+            <text class="analysis-tick" x="46" y="38.0" text-anchor="end">40%</text>
 
-          <rect x="54.0" y="91.8" width="74.9" height="152.2" rx="3" fill="#0b6b67">
+          <rect x="54.0" y="91.2" width="60.0" height="140.8" rx="3" fill="#0b6b67">
             <title>Troy Jackson: 28.4% first-choice support</title>
           </rect>
-          <text class="analysis-value-label" x="91.4" y="83.8" text-anchor="middle">28.4%</text>
-          <text class="analysis-bar-label analysis-x-label" transform="translate(91.4 268) rotate(-45)" text-anchor="end">Troy Jackson</text>
-          <rect x="140.9" y="94.3" width="74.9" height="149.7" rx="3" fill="#c58a1b">
+          <text class="analysis-value-label first-choice-value-label" x="84.0" y="82.2" text-anchor="middle">28.4%</text>
+          <text class="analysis-bar-label analysis-x-label first-choice-x-label" transform="translate(84.0 262) rotate(-42)" text-anchor="end">Troy Jackson</text>
+          <rect x="124.0" y="93.5" width="60.0" height="138.5" rx="3" fill="#c58a1b">
             <title>Nirav Shah: 28.0% first-choice support</title>
           </rect>
-          <text class="analysis-value-label" x="178.3" y="86.3" text-anchor="middle">28.0%</text>
-          <text class="analysis-bar-label analysis-x-label" transform="translate(178.3 268) rotate(-45)" text-anchor="end">Nirav Shah</text>
-          <rect x="227.7" y="172.3" width="74.9" height="71.7" rx="3" fill="#5369a6">
+          <text class="analysis-value-label first-choice-value-label" x="154.0" y="84.5" text-anchor="middle">28.0%</text>
+          <text class="analysis-bar-label analysis-x-label first-choice-x-label" transform="translate(154.0 262) rotate(-42)" text-anchor="end">Nirav Shah</text>
+          <rect x="194.0" y="165.6" width="60.0" height="66.4" rx="3" fill="#5369a6">
             <title>Shenna Bellows: 13.4% first-choice support</title>
           </rect>
-          <text class="analysis-value-label" x="265.1" y="164.3" text-anchor="middle">13.4%</text>
-          <text class="analysis-bar-label analysis-x-label" transform="translate(265.1 268) rotate(-45)" text-anchor="end">Shenna Bellows</text>
-          <rect x="314.6" y="180.5" width="74.9" height="63.5" rx="3" fill="#8b5e3c">
+          <text class="analysis-value-label first-choice-value-label" x="224.0" y="156.6" text-anchor="middle">13.4%</text>
+          <text class="analysis-bar-label analysis-x-label first-choice-x-label" transform="translate(224.0 262) rotate(-42)" text-anchor="end">Shenna Bellows</text>
+          <rect x="264.0" y="173.2" width="60.0" height="58.8" rx="3" fill="#8b5e3c">
             <title>Hannah Pingree: 11.9% first-choice support</title>
           </rect>
-          <text class="analysis-value-label" x="352.0" y="172.5" text-anchor="middle">11.9%</text>
-          <text class="analysis-bar-label analysis-x-label" transform="translate(352.0 268) rotate(-45)" text-anchor="end">Hannah Pingree</text>
-          <rect x="401.4" y="185.8" width="74.9" height="58.2" rx="3" fill="#5c8f46">
+          <text class="analysis-value-label first-choice-value-label" x="294.0" y="164.2" text-anchor="middle">11.9%</text>
+          <text class="analysis-bar-label analysis-x-label first-choice-x-label" transform="translate(294.0 262) rotate(-42)" text-anchor="end">Hannah Pingree</text>
+          <rect x="334.0" y="178.1" width="60.0" height="53.9" rx="3" fill="#5c8f46">
             <title>Don&#x27;t know/Undecided: 10.9% first-choice support</title>
           </rect>
-          <text class="analysis-value-label" x="438.9" y="177.8" text-anchor="middle">10.9%</text>
-          <text class="analysis-bar-label analysis-x-label" transform="translate(438.9 268) rotate(-45)" text-anchor="end">Don&#x27;t know/Undecided</text>
-          <rect x="488.3" y="206.7" width="74.9" height="37.3" rx="3" fill="#b85f6a">
+          <text class="analysis-value-label first-choice-value-label" x="364.0" y="169.1" text-anchor="middle">10.9%</text>
+          <text class="analysis-bar-label analysis-x-label first-choice-x-label" transform="translate(364.0 262) rotate(-42)" text-anchor="end">Undecided</text>
+          <rect x="404.0" y="197.4" width="60.0" height="34.6" rx="3" fill="#b85f6a">
             <title>Angus King III: 7.0% first-choice support</title>
           </rect>
-          <text class="analysis-value-label" x="525.7" y="198.7" text-anchor="middle">7.0%</text>
-          <text class="analysis-bar-label analysis-x-label" transform="translate(525.7 268) rotate(-45)" text-anchor="end">Angus King III</text>
-          <rect x="575.1" y="241.7" width="74.9" height="2.3" rx="3" fill="#6d6a75">
+          <text class="analysis-value-label first-choice-value-label" x="434.0" y="188.4" text-anchor="middle">7.0%</text>
+          <text class="analysis-bar-label analysis-x-label first-choice-x-label" transform="translate(434.0 262) rotate(-42)" text-anchor="end">Angus King III</text>
+          <rect x="474.0" y="229.9" width="60.0" height="2.1" rx="3" fill="#6d6a75">
             <title>Another candidate: 0.4% first-choice support</title>
           </rect>
-          <text class="analysis-value-label" x="612.6" y="233.7" text-anchor="middle">0.4%</text>
-          <text class="analysis-bar-label analysis-x-label" transform="translate(612.6 268) rotate(-45)" text-anchor="end">Another candidate</text>
+          <text class="analysis-value-label first-choice-value-label" x="504.0" y="220.9" text-anchor="middle">0.4%</text>
+          <text class="analysis-bar-label analysis-x-label first-choice-x-label" transform="translate(504.0 262) rotate(-42)" text-anchor="end">Another candidate</text>
           </svg>
         </figure>
-        <p>The candidates themselves have recently begun expressing how they hope their supporters will rank. For instance, Jackson, Hannah Pingree (the current speaker of the Maine House of Representatives), and Shenna Bellows (the current Secretary of State of Maine) <a class="external-link" href="https://fairvote.org/report/rcv-cross-endorsements-report/" target="_blank" rel="noopener noreferrer">cross-endorsed<span class="sr-only"> opens in a new tab</span></a> each other late in the race on May 22, <a class="external-link" href="https://mainemorningstar.com/2026/05/22/pingree-bellows-and-jackson-band-together-with-ranked-choice-pitch-to-voters/" target="_blank" rel="noopener noreferrer">telling their supporters to rank the others second and third<span class="sr-only"> opens in a new tab</span></a>. The strategic move takes ranked-choice voting into consideration and aims to consolidate support for the self-identified “Progressive” candidates through vote transfers. The announcement parallels the alliance between <a class="external-link" href="https://www.nytimes.com/2021/06/19/nyregion/yang-garcia-endorsement.html" target="_blank" rel="noopener noreferrer">Kathryn Garcia and Andrew Yang<span class="sr-only"> opens in a new tab</span></a> in the 2021 New York City democratic primary, when the two challenged front-runner Eric Adams, as well as the cross-endorsements between <a class="external-link" href="https://www.theatlantic.com/politics/archive/2018/05/san-francisco-mayor-jane-kim-mark-leno-ranked-choice-voting/561053/" target="_blank" rel="noopener noreferrer">Jane Kim and Mark Leno<span class="sr-only"> opens in a new tab</span></a> in the 2018 San Francisco mayoral special election, where both were challenging front-runner London Breed. With the May 22 Jackson-Pingree-Bellows cross-endorsement announced midway through the UNH poll&#x27;s data collection period (May 21-25), it remains unclear whether voters will coalesce further around the three candidates (increasing vote transfers among them) ahead of the June 9 primary.</p>
+        <p>The candidates themselves have recently begun expressing how they hope their supporters will rank. For instance, Jackson, Hannah Pingree (the current speaker of the Maine House of Representatives), and Shenna Bellows (the current Secretary of State of Maine) <a class="external-link" href="https://fairvote.org/report/rcv-cross-endorsements-report/" target="_blank" rel="noopener noreferrer">cross-endorsed<span class="sr-only"> opens in a new tab</span></a> each other late in the race on May 22, <a class="external-link" href="https://mainemorningstar.com/2026/05/22/pingree-bellows-and-jackson-band-together-with-ranked-choice-pitch-to-voters/" target="_blank" rel="noopener noreferrer">telling their supporters to rank the others second and third<span class="sr-only"> opens in a new tab</span></a>. The strategic move takes ranked-choice voting into consideration and aims to consolidate support for the self-identified “Progressive” candidates through vote transfers. The announcement parallels the alliance between <a class="external-link" href="https://www.nytimes.com/2021/06/19/nyregion/yang-garcia-endorsement.html" target="_blank" rel="noopener noreferrer">Kathryn Garcia and Andrew Yang<span class="sr-only"> opens in a new tab</span></a> in the 2021 New York City Democratic primary, when the two aligned against front-runner Eric Adams, as well as the cross-endorsements between <a class="external-link" href="https://www.theatlantic.com/politics/archive/2018/05/san-francisco-mayor-jane-kim-mark-leno-ranked-choice-voting/561053/" target="_blank" rel="noopener noreferrer">Jane Kim and Mark Leno<span class="sr-only"> opens in a new tab</span></a> in the 2018 San Francisco mayoral special election, when both sought to overtake front-runner London Breed. With the May 22 Jackson-Pingree-Bellows cross-endorsement announced midway through the UNH poll&#x27;s data collection period (May 21-25), it remains unclear whether voters will coalesce further around the three candidates (increasing vote transfers among them) ahead of the June 9 primary.</p>
         <h3 class="section-subheading">Bellows and Pingree Voters Transfer to Shah</h3>
         <p>In the UNH poll, we find that Bellow’s and Pingree’s supporters frequently rank Shah over Jackson. If the recent cross-endorsements change these down-ballot ranks, it could thus have a considerable effect on the outcome of the election. The chart below shows the probability that each candidate is ranked second, given a first-choice candidate. Those who rank Bellows first rank Shah second 32.6% of the time, compared with 24.1% (-8.5%) for Jackson. Similarly, those who rank Pingree first rank Shah second 29.3% of the time compared to only 9.9% (-19.4%) for Jackson.</p>
 
@@ -1798,7 +2159,7 @@
         </figure>
         <h3 class="section-subheading">Forecasting the Democratic Gubernatorial Primary</h3>
         <p>We use the top-3 UNH poll, combined with a model of ranked choices, to simulate how the election might play out (see the <a href="#simulation-methodology">Methodology</a> section for details). In simulated elections, the transfer of votes to Shah leads to consistent victories for the longtime front-runner despite the closeness in first-choice selections. The chart below summarizes the results of all simulated Democratic Gubernatorial elections. Each point on the plot is a simulated election. The x-axis is Shah’s margin in first-choice votes, whereas the y-axis is Shah’s margin in vote transfers from all other candidates. The dashed line is the victory boundary, denoting the boundary along which the first-choice and transfer margins cancel each other out.</p>
-        <p>Although the simulated elections are nearly evenly divided on first-choice votes (Shah trails by 0.38% on average), the simulations consistently yield transfer-vote margins &gt;8% for Shah, reflecting support from Bellows, Pingree, and King supporters. Netting the two, Shah wins 97.4% of all Democratic gubernatorial primary simulations while Jackson wins 2.6%. In the chart below, each point represents a simulated election drawn from a preference model estimated using the UNH data.</p>
+        <p>Although the simulated elections are nearly evenly divided on first-choice votes (Shah trails by 0.38% on average), the simulations consistently yield transfer-vote margins &gt;8% for Shah, reflecting support from Bellows, Pingree, and King supporters. Adding the two together, Shah wins 97.4% of all Democratic gubernatorial primary simulations while Jackson wins 2.6%. In the chart below, each point represents a simulated election drawn from a preference model estimated using the UNH data.</p>
 
         <figure class="analysis-figure" id="gubernatorial-democratic-primary">
           <figcaption>Gubernatorial Democratic Primary: Simulated Elections</figcaption>
@@ -4823,20 +5184,20 @@
                   <p class="analysis-figure-caption">The chart visualizes 1,000 simulations of the Democratic gubernatorial primary. Each point represents a simulated election drawn from a preference model estimated using the UNH data. In all simulations, Troy Jackson and Nirav Shah are the final two candidates. The x-axis is Shah’s margin in first-choice votes, and the y-axis is Shah’s margin in vote transfers from all other candidates. For example, in the simulated Jackson victory outlined on the left, Shah’s 10% lead in vote transfers does not offset Jackson’s 13.1% lead in first-choice shares.</p>
         </figure>
         <p>Given the lack of prior analysis beyond first-choice polls, prediction betting markets are among the few existing indicators of the 2026 Maine primary outcomes. Compared to our simulations, the markets are bullish on a Jackson victory. At the time of writing, the <a class="external-link" href="https://polymarket.com/event/maine-governor-democratic-primary-winner" target="_blank" rel="noopener noreferrer">Polymarket<span class="sr-only"> opens in a new tab</span></a> and <a class="external-link" href="https://kalshi.com/markets/kxgovmenomd/maine-governor-democratic-nominee/kxgovmenomd-26" target="_blank" rel="noopener noreferrer">Kalshi<span class="sr-only"> opens in a new tab</span></a> markets both give Jackson an approximately 60% chance of winning compared to approximately 30% for Nirav Shah.</p>
-        <p>Below, we provide example simulations that led to Shah and Jackson victories. The two simulations are highlighted in the scatter plots above.</p>
-        <p><span class="example-prose-label">Example Shah Victory:</span> In the example Shah victory shown below, Shah and Jackson begin with nearly equal first-choice shares, but in each elimination round, Shah receives a greater share of the vote transfers, especially following the eliminations of King and Bellows.</p>
+        <p>Below, we provide example simulations that led to Shah and Jackson victories (The exact numbers in the example represent the random draws used in this particular run of the simulation; in practice, we average over many such random runs rather than relying on any one.). The two simulations are highlighted in the scatter plots above.</p>
+        <p><span class="example-prose-label">Example Shah Victory</span> In the example Shah victory shown below, Shah and Jackson begin with nearly equal first-choice shares, but in each elimination round, Shah receives a greater share of the vote transfers, especially following the eliminations of King and Bellows.</p>
 
         <div id="transfer-example-irv-root-gubernatorial-democratic-primary-shah" class="irv-simulation-stack analysis-example-irv-stack" data-irv-data="transfer-example-irv-data-gubernatorial-democratic-primary-shah"></div>
         <script type="application/json" id="transfer-example-irv-data-gubernatorial-democratic-primary-shah">[{"primary": "Gubernatorial Democratic Primary -- Example Shah Victory", "total_weight": 100000.0, "candidate_colors": {"Another candidate": "#b85f6a", "Shenna Bellows": "#8b5e3c", "Troy Jackson": "#c58a1b", "Angus King III": "#5c8f46", "Hannah Pingree": "#5369a6", "Nirav Shah": "#0b6b67"}, "candidates": [{"candidate_id": "Nirav Shah", "name": "Nirav Shah", "label": "Shah"}, {"candidate_id": "Troy Jackson", "name": "Troy Jackson", "label": "Jackson"}, {"candidate_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows"}, {"candidate_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree"}, {"candidate_id": "Angus King III", "name": "Angus King III", "label": "King"}, {"candidate_id": "Another candidate", "name": "Another candidate", "label": "Another"}], "rounds": [{"round": 1, "remaining_weight": 100000.0, "eliminated_id": "Another candidate", "eliminated_name": "Another candidate", "eliminated_label": "Another", "winner_id": null, "winner_name": null, "winner_label": null, "tallies": [{"candidate_id": "Nirav Shah", "name": "Nirav Shah", "label": "Shah", "active": true, "previously_eliminated": false, "weight": 30424.0, "percent": 30.424, "eliminated": false, "winner": false, "segments": [{"source_id": "Nirav Shah", "name": "Nirav Shah", "label": "Shah", "weight": 30424.0, "percent": 30.424}]}, {"candidate_id": "Troy Jackson", "name": "Troy Jackson", "label": "Jackson", "active": true, "previously_eliminated": false, "weight": 29778.0, "percent": 29.778, "eliminated": false, "winner": false, "segments": [{"source_id": "Troy Jackson", "name": "Troy Jackson", "label": "Jackson", "weight": 29778.0, "percent": 29.778}]}, {"candidate_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "active": true, "previously_eliminated": false, "weight": 15956.0, "percent": 15.956, "eliminated": false, "winner": false, "segments": [{"source_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "weight": 15956.0, "percent": 15.956}]}, {"candidate_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "active": true, "previously_eliminated": false, "weight": 14309.0, "percent": 14.309, "eliminated": false, "winner": false, "segments": [{"source_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "weight": 14309.0, "percent": 14.309}]}, {"candidate_id": "Angus King III", "name": "Angus King III", "label": "King", "active": true, "previously_eliminated": false, "weight": 8995.0, "percent": 8.995, "eliminated": false, "winner": false, "segments": [{"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 8995.0, "percent": 8.995}]}, {"candidate_id": "Another candidate", "name": "Another candidate", "label": "Another", "active": true, "previously_eliminated": false, "weight": 538.0, "percent": 0.538, "eliminated": true, "winner": false, "segments": [{"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 538.0, "percent": 0.538}]}], "transfers": [{"to_id": "Troy Jackson", "name": "Troy Jackson", "label": "Jackson", "weight": 459.0, "percent_remaining": 0.459, "percent_eliminated": 85.31598513011153, "segments": [{"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 459.0, "percent_eliminated": 85.31598513011153}]}, {"to_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "weight": 78.0, "percent_remaining": 0.078, "percent_eliminated": 14.49814126394052, "segments": [{"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 78.0, "percent_eliminated": 14.49814126394052}]}, {"to_id": "__exhausted__", "name": "Exhausted", "label": "Exhausted", "weight": 1.0, "percent_remaining": 0.001, "percent_eliminated": 0.18587360594795538, "segments": [{"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 1.0, "percent_eliminated": 0.18587360594795538}]}]}, {"round": 2, "remaining_weight": 99999.0, "eliminated_id": "Angus King III", "eliminated_name": "Angus King III", "eliminated_label": "King", "winner_id": null, "winner_name": null, "winner_label": null, "tallies": [{"candidate_id": "Nirav Shah", "name": "Nirav Shah", "label": "Shah", "active": true, "previously_eliminated": false, "weight": 30424.0, "percent": 30.42430424304243, "eliminated": false, "winner": false, "segments": [{"source_id": "Nirav Shah", "name": "Nirav Shah", "label": "Shah", "weight": 30424.0, "percent": 30.42430424304243}]}, {"candidate_id": "Troy Jackson", "name": "Troy Jackson", "label": "Jackson", "active": true, "previously_eliminated": false, "weight": 30237.0, "percent": 30.23730237302373, "eliminated": false, "winner": false, "segments": [{"source_id": "Troy Jackson", "name": "Troy Jackson", "label": "Jackson", "weight": 29778.0, "percent": 29.77829778297783}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 459.0, "percent": 0.45900459004590044}]}, {"candidate_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "active": true, "previously_eliminated": false, "weight": 16034.0, "percent": 16.034160341603418, "eliminated": false, "winner": false, "segments": [{"source_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "weight": 15956.0, "percent": 15.956159561595616}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 78.0, "percent": 0.07800078000780007}]}, {"candidate_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "active": true, "previously_eliminated": false, "weight": 14309.0, "percent": 14.309143091430915, "eliminated": false, "winner": false, "segments": [{"source_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "weight": 14309.0, "percent": 14.309143091430915}]}, {"candidate_id": "Angus King III", "name": "Angus King III", "label": "King", "active": true, "previously_eliminated": false, "weight": 8995.0, "percent": 8.995089950899509, "eliminated": true, "winner": false, "segments": [{"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 8995.0, "percent": 8.995089950899509}]}, {"candidate_id": "Another candidate", "name": "Another candidate", "label": "Another", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}], "transfers": [{"to_id": "Nirav Shah", "name": "Nirav Shah", "label": "Shah", "weight": 4873.0, "percent_remaining": 4.873048730487305, "percent_eliminated": 54.1745414118955, "segments": [{"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 4873.0, "percent_eliminated": 54.1745414118955}]}, {"to_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "weight": 1120.0, "percent_remaining": 1.120011200112001, "percent_eliminated": 12.45136186770428, "segments": [{"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 1120.0, "percent_eliminated": 12.45136186770428}]}, {"to_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "weight": 1066.0, "percent_remaining": 1.066010660106601, "percent_eliminated": 11.851028349082824, "segments": [{"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 1066.0, "percent_eliminated": 11.851028349082824}]}, {"to_id": "Troy Jackson", "name": "Troy Jackson", "label": "Jackson", "weight": 910.0, "percent_remaining": 0.9100091000910009, "percent_eliminated": 10.116731517509727, "segments": [{"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 910.0, "percent_eliminated": 10.116731517509727}]}, {"to_id": "__exhausted__", "name": "Exhausted", "label": "Exhausted", "weight": 1026.0, "percent_remaining": 1.026010260102601, "percent_eliminated": 11.406336853807671, "segments": [{"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 1026.0, "percent_eliminated": 11.406336853807671}]}]}, {"round": 3, "remaining_weight": 98973.0, "eliminated_id": "Hannah Pingree", "eliminated_name": "Hannah Pingree", "eliminated_label": "Pingree", "winner_id": null, "winner_name": null, "winner_label": null, "tallies": [{"candidate_id": "Nirav Shah", "name": "Nirav Shah", "label": "Shah", "active": true, "previously_eliminated": false, "weight": 35297.0, "percent": 35.66326169763471, "eliminated": false, "winner": false, "segments": [{"source_id": "Nirav Shah", "name": "Nirav Shah", "label": "Shah", "weight": 30424.0, "percent": 30.73969668495448}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 4873.0, "percent": 4.923565012680226}]}, {"candidate_id": "Troy Jackson", "name": "Troy Jackson", "label": "Jackson", "active": true, "previously_eliminated": false, "weight": 31147.0, "percent": 31.470198943146112, "eliminated": false, "winner": false, "segments": [{"source_id": "Troy Jackson", "name": "Troy Jackson", "label": "Jackson", "weight": 29778.0, "percent": 30.086993422448547}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 910.0, "percent": 0.9194426762854516}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 459.0, "percent": 0.4637628444121124}]}, {"candidate_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "active": true, "previously_eliminated": false, "weight": 17100.0, "percent": 17.277439301627716, "eliminated": false, "winner": false, "segments": [{"source_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "weight": 15956.0, "percent": 16.12156850858315}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 1066.0, "percent": 1.077061420791529}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 78.0, "percent": 0.0788093722530387}]}, {"candidate_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "active": true, "previously_eliminated": false, "weight": 15429.0, "percent": 15.589100057591464, "eliminated": true, "winner": false, "segments": [{"source_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "weight": 14309.0, "percent": 14.457478302163215}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 1120.0, "percent": 1.1316217554282482}]}, {"candidate_id": "Angus King III", "name": "Angus King III", "label": "King", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}, {"candidate_id": "Another candidate", "name": "Another candidate", "label": "Another", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}], "transfers": [{"to_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "weight": 6086.0, "percent_remaining": 6.149151788871713, "percent_eliminated": 39.44520059627973, "segments": [{"source_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "weight": 6057.0, "percent_eliminated": 39.25724285436516}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 29.0, "percent_eliminated": 0.18795774191457645}]}, {"to_id": "Nirav Shah", "name": "Nirav Shah", "label": "Shah", "weight": 4297.0, "percent_remaining": 4.341588109888556, "percent_eliminated": 27.850152310583965, "segments": [{"source_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "weight": 3984.0, "percent_eliminated": 25.821504958195607}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 313.0, "percent_eliminated": 2.0286473523883597}]}, {"to_id": "Troy Jackson", "name": "Troy Jackson", "label": "Jackson", "weight": 1871.0, "percent_remaining": 1.8904145575055824, "percent_eliminated": 12.126515004212846, "segments": [{"source_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "weight": 1842.0, "percent_eliminated": 11.93855726229827}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 29.0, "percent_eliminated": 0.18795774191457645}]}, {"to_id": "__exhausted__", "name": "Exhausted", "label": "Exhausted", "weight": 3175.0, "percent_remaining": 3.2079456013256142, "percent_eliminated": 20.578132088923457, "segments": [{"source_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "weight": 2426.0, "percent_eliminated": 15.723637306371119}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 749.0, "percent_eliminated": 4.854494782552337}]}]}, {"round": 4, "remaining_weight": 95798.0, "eliminated_id": "Shenna Bellows", "eliminated_name": "Shenna Bellows", "eliminated_label": "Bellows", "winner_id": null, "winner_name": null, "winner_label": null, "tallies": [{"candidate_id": "Nirav Shah", "name": "Nirav Shah", "label": "Shah", "active": true, "previously_eliminated": false, "weight": 39594.0, "percent": 41.33071671642414, "eliminated": false, "winner": false, "segments": [{"source_id": "Nirav Shah", "name": "Nirav Shah", "label": "Shah", "weight": 30424.0, "percent": 31.7584918265517}, {"source_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "weight": 3984.0, "percent": 4.158750704607612}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 5186.0, "percent": 5.413474185264828}]}, {"candidate_id": "Troy Jackson", "name": "Troy Jackson", "label": "Jackson", "active": true, "previously_eliminated": false, "weight": 33018.0, "percent": 34.466272782312785, "eliminated": false, "winner": false, "segments": [{"source_id": "Troy Jackson", "name": "Troy Jackson", "label": "Jackson", "weight": 29778.0, "percent": 31.0841562454331}, {"source_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "weight": 1842.0, "percent": 1.9227958830038205}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 939.0, "percent": 0.9801874778179085}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 459.0, "percent": 0.4791331760579553}]}, {"candidate_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "active": true, "previously_eliminated": false, "weight": 23186.0, "percent": 24.203010501263073, "eliminated": true, "winner": false, "segments": [{"source_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "weight": 15956.0, "percent": 16.65588008100378}, {"source_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "weight": 6057.0, "percent": 6.32267897033341}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 1095.0, "percent": 1.1430301258898934}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 78.0, "percent": 0.0814213240359924}]}, {"candidate_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}, {"candidate_id": "Angus King III", "name": "Angus King III", "label": "King", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}, {"candidate_id": "Another candidate", "name": "Another candidate", "label": "Another", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}], "transfers": [{"to_id": "Nirav Shah", "name": "Nirav Shah", "label": "Shah", "weight": 10657.0, "percent_remaining": 11.124449362199629, "percent_eliminated": 45.963081169671355, "segments": [{"source_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "weight": 7938.0, "percent_eliminated": 34.2361770033641}, {"source_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "weight": 2325.0, "percent_eliminated": 10.027602863797119}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 393.0, "percent_eliminated": 1.6949883550418356}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 1.0, "percent_eliminated": 0.004312947468299836}]}, {"to_id": "Troy Jackson", "name": "Troy Jackson", "label": "Jackson", "weight": 5488.0, "percent_remaining": 5.728720850122132, "percent_eliminated": 23.6694557060295, "segments": [{"source_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "weight": 4681.0, "percent_eliminated": 20.188907099111532}, {"source_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "weight": 687.0, "percent_eliminated": 2.9629949107219873}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 61.0, "percent_eliminated": 0.26308979556629003}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 59.0, "percent_eliminated": 0.2544639006296903}]}, {"to_id": "__exhausted__", "name": "Exhausted", "label": "Exhausted", "weight": 7041.0, "percent_remaining": 7.349840288941314, "percent_eliminated": 30.367463124299146, "segments": [{"source_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "weight": 3337.0, "percent_eliminated": 14.392305701716554}, {"source_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "weight": 3045.0, "percent_eliminated": 13.132925040973001}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 641.0, "percent_eliminated": 2.764599327180195}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 18.0, "percent_eliminated": 0.07763305442939705}]}]}, {"round": 5, "remaining_weight": 88757.0, "eliminated_id": null, "eliminated_name": null, "eliminated_label": null, "winner_id": "Nirav Shah", "winner_name": "Nirav Shah", "winner_label": "Shah", "tallies": [{"candidate_id": "Nirav Shah", "name": "Nirav Shah", "label": "Shah", "active": true, "previously_eliminated": false, "weight": 50251.0, "percent": 56.616379553162005, "eliminated": false, "winner": true, "segments": [{"source_id": "Nirav Shah", "name": "Nirav Shah", "label": "Shah", "weight": 30424.0, "percent": 34.27785977444032}, {"source_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "weight": 7938.0, "percent": 8.943519947722432}, {"source_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "weight": 6309.0, "percent": 7.108171749833816}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 5579.0, "percent": 6.285701409466296}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 1.0, "percent": 0.0011266716991335894}]}, {"candidate_id": "Troy Jackson", "name": "Troy Jackson", "label": "Jackson", "active": true, "previously_eliminated": false, "weight": 38506.0, "percent": 43.383620446837995, "eliminated": false, "winner": false, "segments": [{"source_id": "Troy Jackson", "name": "Troy Jackson", "label": "Jackson", "weight": 29778.0, "percent": 33.55002985680003}, {"source_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "weight": 4681.0, "percent": 5.2739502236443325}, {"source_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "weight": 2529.0, "percent": 2.849352727108848}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 1000.0, "percent": 1.1266716991335894}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 518.0, "percent": 0.5836159401511993}]}, {"candidate_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}, {"candidate_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}, {"candidate_id": "Angus King III", "name": "Angus King III", "label": "King", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}, {"candidate_id": "Another candidate", "name": "Another candidate", "label": "Another", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}], "transfers": []}]}]</script>
-        <p><span class="example-prose-label">Example Jackson Victory:</span> In all simulated Jackson victories, Jackson begins with a sufficiently large first-choice lead to offset vote transfers to Nirav Shah in elimination rounds. In the example shown below, Jackson leads Shah by over 13% in first-choice votes. When Hannah Pingree is eliminated in Round 4, 45.5% of her votes are transferred to Shah (compared to 15.5% to Jackson), but this transfer is insufficient to offset Jackson’s lead.</p>
+        <p><span class="example-prose-label">Example Jackson Victory</span> In all simulated Jackson victories, Jackson begins with a sufficiently large first-choice lead to offset vote transfers to Nirav Shah in elimination rounds. In the example shown below, Jackson leads Shah by over 13% in first-choice votes. When Hannah Pingree is eliminated in Round 4, 45.5% of her votes are transferred to Shah (compared to 15.5% to Jackson), but this transfer is insufficient to offset Jackson’s lead.</p>
 
         <div id="transfer-example-irv-root-gubernatorial-democratic-primary-jackson" class="irv-simulation-stack analysis-example-irv-stack" data-irv-data="transfer-example-irv-data-gubernatorial-democratic-primary-jackson"></div>
         <script type="application/json" id="transfer-example-irv-data-gubernatorial-democratic-primary-jackson">[{"primary": "Gubernatorial Democratic Primary -- Example Jackson Victory", "total_weight": 100000.0, "candidate_colors": {"Another candidate": "#b85f6a", "Shenna Bellows": "#8b5e3c", "Troy Jackson": "#c58a1b", "Angus King III": "#5c8f46", "Hannah Pingree": "#5369a6", "Nirav Shah": "#0b6b67"}, "candidates": [{"candidate_id": "Troy Jackson", "name": "Troy Jackson", "label": "Jackson"}, {"candidate_id": "Nirav Shah", "name": "Nirav Shah", "label": "Shah"}, {"candidate_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree"}, {"candidate_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows"}, {"candidate_id": "Angus King III", "name": "Angus King III", "label": "King"}, {"candidate_id": "Another candidate", "name": "Another candidate", "label": "Another"}], "rounds": [{"round": 1, "remaining_weight": 100000.0, "eliminated_id": "Another candidate", "eliminated_name": "Another candidate", "eliminated_label": "Another", "winner_id": null, "winner_name": null, "winner_label": null, "tallies": [{"candidate_id": "Troy Jackson", "name": "Troy Jackson", "label": "Jackson", "active": true, "previously_eliminated": false, "weight": 38406.0, "percent": 38.406, "eliminated": false, "winner": false, "segments": [{"source_id": "Troy Jackson", "name": "Troy Jackson", "label": "Jackson", "weight": 38406.0, "percent": 38.406}]}, {"candidate_id": "Nirav Shah", "name": "Nirav Shah", "label": "Shah", "active": true, "previously_eliminated": false, "weight": 25342.0, "percent": 25.342, "eliminated": false, "winner": false, "segments": [{"source_id": "Nirav Shah", "name": "Nirav Shah", "label": "Shah", "weight": 25342.0, "percent": 25.342}]}, {"candidate_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "active": true, "previously_eliminated": false, "weight": 14217.0, "percent": 14.217, "eliminated": false, "winner": false, "segments": [{"source_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "weight": 14217.0, "percent": 14.217}]}, {"candidate_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "active": true, "previously_eliminated": false, "weight": 13607.0, "percent": 13.607, "eliminated": false, "winner": false, "segments": [{"source_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "weight": 13607.0, "percent": 13.607}]}, {"candidate_id": "Angus King III", "name": "Angus King III", "label": "King", "active": true, "previously_eliminated": false, "weight": 7959.0, "percent": 7.959, "eliminated": false, "winner": false, "segments": [{"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 7959.0, "percent": 7.959}]}, {"candidate_id": "Another candidate", "name": "Another candidate", "label": "Another", "active": true, "previously_eliminated": false, "weight": 469.0, "percent": 0.469, "eliminated": true, "winner": false, "segments": [{"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 469.0, "percent": 0.469}]}], "transfers": [{"to_id": "Troy Jackson", "name": "Troy Jackson", "label": "Jackson", "weight": 387.0, "percent_remaining": 0.387, "percent_eliminated": 82.51599147121536, "segments": [{"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 387.0, "percent_eliminated": 82.51599147121536}]}, {"to_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "weight": 82.0, "percent_remaining": 0.082, "percent_eliminated": 17.48400852878465, "segments": [{"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 82.0, "percent_eliminated": 17.48400852878465}]}]}, {"round": 2, "remaining_weight": 100000.0, "eliminated_id": "Angus King III", "eliminated_name": "Angus King III", "eliminated_label": "King", "winner_id": null, "winner_name": null, "winner_label": null, "tallies": [{"candidate_id": "Troy Jackson", "name": "Troy Jackson", "label": "Jackson", "active": true, "previously_eliminated": false, "weight": 38793.0, "percent": 38.793, "eliminated": false, "winner": false, "segments": [{"source_id": "Troy Jackson", "name": "Troy Jackson", "label": "Jackson", "weight": 38406.0, "percent": 38.406}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 387.0, "percent": 0.387}]}, {"candidate_id": "Nirav Shah", "name": "Nirav Shah", "label": "Shah", "active": true, "previously_eliminated": false, "weight": 25342.0, "percent": 25.342, "eliminated": false, "winner": false, "segments": [{"source_id": "Nirav Shah", "name": "Nirav Shah", "label": "Shah", "weight": 25342.0, "percent": 25.342}]}, {"candidate_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "active": true, "previously_eliminated": false, "weight": 14217.0, "percent": 14.217, "eliminated": false, "winner": false, "segments": [{"source_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "weight": 14217.0, "percent": 14.217}]}, {"candidate_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "active": true, "previously_eliminated": false, "weight": 13689.0, "percent": 13.689, "eliminated": false, "winner": false, "segments": [{"source_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "weight": 13607.0, "percent": 13.607}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 82.0, "percent": 0.082}]}, {"candidate_id": "Angus King III", "name": "Angus King III", "label": "King", "active": true, "previously_eliminated": false, "weight": 7959.0, "percent": 7.959, "eliminated": true, "winner": false, "segments": [{"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 7959.0, "percent": 7.959}]}, {"candidate_id": "Another candidate", "name": "Another candidate", "label": "Another", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}], "transfers": [{"to_id": "Nirav Shah", "name": "Nirav Shah", "label": "Shah", "weight": 5105.0, "percent_remaining": 5.105, "percent_eliminated": 64.14122377183064, "segments": [{"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 5105.0, "percent_eliminated": 64.14122377183064}]}, {"to_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "weight": 764.0, "percent_remaining": 0.764, "percent_eliminated": 9.599195878879256, "segments": [{"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 764.0, "percent_eliminated": 9.599195878879256}]}, {"to_id": "Troy Jackson", "name": "Troy Jackson", "label": "Jackson", "weight": 496.0, "percent_remaining": 0.496, "percent_eliminated": 6.231938685764543, "segments": [{"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 496.0, "percent_eliminated": 6.231938685764543}]}, {"to_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "weight": 474.0, "percent_remaining": 0.474, "percent_eliminated": 5.955522050508858, "segments": [{"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 474.0, "percent_eliminated": 5.955522050508858}]}, {"to_id": "__exhausted__", "name": "Exhausted", "label": "Exhausted", "weight": 1120.0, "percent_remaining": 1.12, "percent_eliminated": 14.07211961301671, "segments": [{"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 1120.0, "percent_eliminated": 14.07211961301671}]}]}, {"round": 3, "remaining_weight": 98880.0, "eliminated_id": "Shenna Bellows", "eliminated_name": "Shenna Bellows", "eliminated_label": "Bellows", "winner_id": null, "winner_name": null, "winner_label": null, "tallies": [{"candidate_id": "Troy Jackson", "name": "Troy Jackson", "label": "Jackson", "active": true, "previously_eliminated": false, "weight": 39289.0, "percent": 39.73402103559871, "eliminated": false, "winner": false, "segments": [{"source_id": "Troy Jackson", "name": "Troy Jackson", "label": "Jackson", "weight": 38406.0, "percent": 38.84101941747573}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 496.0, "percent": 0.5016181229773463}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 387.0, "percent": 0.3913834951456311}]}, {"candidate_id": "Nirav Shah", "name": "Nirav Shah", "label": "Shah", "active": true, "previously_eliminated": false, "weight": 30447.0, "percent": 30.791868932038835, "eliminated": false, "winner": false, "segments": [{"source_id": "Nirav Shah", "name": "Nirav Shah", "label": "Shah", "weight": 25342.0, "percent": 25.629045307443366}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 5105.0, "percent": 5.162823624595469}]}, {"candidate_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "active": true, "previously_eliminated": false, "weight": 14981.0, "percent": 15.150687702265373, "eliminated": false, "winner": false, "segments": [{"source_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "weight": 14217.0, "percent": 14.378033980582524}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 764.0, "percent": 0.7726537216828478}]}, {"candidate_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "active": true, "previously_eliminated": false, "weight": 14163.0, "percent": 14.323422330097088, "eliminated": true, "winner": false, "segments": [{"source_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "weight": 13607.0, "percent": 13.761124595469255}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 474.0, "percent": 0.47936893203883496}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 82.0, "percent": 0.08292880258899676}]}, {"candidate_id": "Angus King III", "name": "Angus King III", "label": "King", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}, {"candidate_id": "Another candidate", "name": "Another candidate", "label": "Another", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}], "transfers": [{"to_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "weight": 6279.0, "percent_remaining": 6.350121359223301, "percent_eliminated": 44.33382757890278, "segments": [{"source_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "weight": 6042.0, "percent_eliminated": 42.66045329379369}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 187.0, "percent_eliminated": 1.3203417355080138}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 50.0, "percent_eliminated": 0.3530325496010732}]}, {"to_id": "Troy Jackson", "name": "Troy Jackson", "label": "Jackson", "weight": 3860.0, "percent_remaining": 3.9037216828478964, "percent_eliminated": 27.254112829202853, "segments": [{"source_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "weight": 3829.0, "percent_eliminated": 27.035232648450187}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 25.0, "percent_eliminated": 0.1765162748005366}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 6.0, "percent_eliminated": 0.042363905952128786}]}, {"to_id": "Nirav Shah", "name": "Nirav Shah", "label": "Shah", "weight": 3323.0, "percent_remaining": 3.3606391585760518, "percent_eliminated": 23.462543246487325, "segments": [{"source_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "weight": 3267.0, "percent_eliminated": 23.067146790934125}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 56.0, "percent_eliminated": 0.395396455553202}]}, {"to_id": "__exhausted__", "name": "Exhausted", "label": "Exhausted", "weight": 701.0, "percent_remaining": 0.7089401294498382, "percent_eliminated": 4.949516345407046, "segments": [{"source_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "weight": 469.0, "percent_eliminated": 3.3114453152580667}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 225.0, "percent_eliminated": 1.5886464732048295}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 7.0, "percent_eliminated": 0.04942455694415025}]}]}, {"round": 4, "remaining_weight": 98179.0, "eliminated_id": "Hannah Pingree", "eliminated_name": "Hannah Pingree", "eliminated_label": "Pingree", "winner_id": null, "winner_name": null, "winner_label": null, "tallies": [{"candidate_id": "Troy Jackson", "name": "Troy Jackson", "label": "Jackson", "active": true, "previously_eliminated": false, "weight": 43149.0, "percent": 43.94931706373053, "eliminated": false, "winner": false, "segments": [{"source_id": "Troy Jackson", "name": "Troy Jackson", "label": "Jackson", "weight": 38406.0, "percent": 39.11834506360831}, {"source_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "weight": 3829.0, "percent": 3.9000193524073374}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 502.0, "percent": 0.5113109728149604}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 412.0, "percent": 0.4196416748999277}]}, {"candidate_id": "Nirav Shah", "name": "Nirav Shah", "label": "Shah", "active": true, "previously_eliminated": false, "weight": 33770.0, "percent": 34.39635767322951, "eliminated": false, "winner": false, "segments": [{"source_id": "Nirav Shah", "name": "Nirav Shah", "label": "Shah", "weight": 25342.0, "percent": 25.812037197364}, {"source_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "weight": 3267.0, "percent": 3.327595514315689}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 5161.0, "percent": 5.256724961549822}]}, {"candidate_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "active": true, "previously_eliminated": false, "weight": 21260.0, "percent": 21.654325263039958, "eliminated": true, "winner": false, "segments": [{"source_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "weight": 14217.0, "percent": 14.480693427311339}, {"source_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "weight": 6042.0, "percent": 6.154065533362532}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 951.0, "percent": 0.9686389146355127}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 50.0, "percent": 0.050927387730573745}]}, {"candidate_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}, {"candidate_id": "Angus King III", "name": "Angus King III", "label": "King", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}, {"candidate_id": "Another candidate", "name": "Another candidate", "label": "Another", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}], "transfers": [{"to_id": "Nirav Shah", "name": "Nirav Shah", "label": "Shah", "weight": 9666.0, "percent_remaining": 9.845282596074517, "percent_eliminated": 45.465663217309505, "segments": [{"source_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "weight": 7428.0, "percent_eliminated": 34.93885230479774}, {"source_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "weight": 2017.0, "percent_eliminated": 9.487300094073378}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 221.0, "percent_eliminated": 1.039510818438382}]}, {"to_id": "Troy Jackson", "name": "Troy Jackson", "label": "Jackson", "weight": 3308.0, "percent_remaining": 3.369355972254759, "percent_eliminated": 15.559736594543745, "segments": [{"source_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "weight": 2179.0, "percent_eliminated": 10.249294449670742}, {"source_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "weight": 1061.0, "percent_eliminated": 4.990592662276576}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 35.0, "percent_eliminated": 0.16462841015992474}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 33.0, "percent_eliminated": 0.15522107243650046}]}, {"to_id": "__exhausted__", "name": "Exhausted", "label": "Exhausted", "weight": 8286.0, "percent_remaining": 8.439686694710682, "percent_eliminated": 38.97460018814675, "segments": [{"source_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "weight": 4610.0, "percent_eliminated": 21.683913452492945}, {"source_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "weight": 2964.0, "percent_eliminated": 13.941674506114769}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 695.0, "percent_eliminated": 3.269049858889934}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 17.0, "percent_eliminated": 0.0799623706491063}]}]}, {"round": 5, "remaining_weight": 89893.0, "eliminated_id": null, "eliminated_name": null, "eliminated_label": null, "winner_id": "Troy Jackson", "winner_name": "Troy Jackson", "winner_label": "Jackson", "tallies": [{"candidate_id": "Troy Jackson", "name": "Troy Jackson", "label": "Jackson", "active": true, "previously_eliminated": false, "weight": 46457.0, "percent": 51.680331060260535, "eliminated": false, "winner": true, "segments": [{"source_id": "Troy Jackson", "name": "Troy Jackson", "label": "Jackson", "weight": 38406.0, "percent": 42.724127573893405}, {"source_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "weight": 2179.0, "percent": 2.4239929694191984}, {"source_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "weight": 4890.0, "percent": 5.439800651886132}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 537.0, "percent": 0.5973768814034464}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 445.0, "percent": 0.49503298365834936}]}, {"candidate_id": "Nirav Shah", "name": "Nirav Shah", "label": "Shah", "active": true, "previously_eliminated": false, "weight": 43436.0, "percent": 48.319668939739465, "eliminated": false, "winner": false, "segments": [{"source_id": "Nirav Shah", "name": "Nirav Shah", "label": "Shah", "weight": 25342.0, "percent": 28.19129409408964}, {"source_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "weight": 7428.0, "percent": 8.263157309245436}, {"source_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "weight": 5284.0, "percent": 5.878099518316221}, {"source_id": "Angus King III", "name": "Angus King III", "label": "King", "weight": 5382.0, "percent": 5.987118018088172}]}, {"candidate_id": "Hannah Pingree", "name": "Hannah Pingree", "label": "Pingree", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}, {"candidate_id": "Shenna Bellows", "name": "Shenna Bellows", "label": "Bellows", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}, {"candidate_id": "Angus King III", "name": "Angus King III", "label": "King", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}, {"candidate_id": "Another candidate", "name": "Another candidate", "label": "Another", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}], "transfers": []}]}]</script>
         <p>While the simulated elections are grounded in the May UNH poll, sentiment may still shift considerably ahead of the June 9 primary, particularly given the recent cross-endorsements. The cross-endorsement could reduce Shah’s vote-transfer margin from Bellows and Pingree. Further, we also find strong support for Jackson among younger voters. Over half (54.5%) of respondents aged 18-34 ranked Jackson first in the poll, compared with only 25% across all other age groups combined, reflecting a +29.5% gain among youth, as shown in the table below. Maine has one of the <a class="external-link" href="https://www.democracymaine.org/sites/default/files/2025-07/2025_State%20of%20Democracy%20in%20Maine_FINAL.pdf" target="_blank" rel="noopener noreferrer">highest youth turnout rates in the nation<span class="sr-only"> opens in a new tab</span></a>, ranking second in 2024 behind only Minnesota, so a further increase in youth turnout in 2026, combined with further cross-endorsement impact, should narrow Shah’s lead come June 9.</p>
 
-        <figure class="analysis-figure" id="troy-jackson-first-choice-support-by-demographic-group">
+        <figure class="analysis-figure troy-jackson-delta-figure" id="troy-jackson-first-choice-support-by-demographic-group">
           <figcaption>Troy Jackson: First-Choice Support by Demographic Group</figcaption>
-          <table class="analysis-table">
+          <table class="analysis-table troy-jackson-delta-table">
             <thead>
               <tr>
                 <th>Demographic</th>
@@ -4916,51 +5277,51 @@
 
         <figure class="analysis-figure" id="me-02-democratic-primary-first-choice-support">
           <figcaption>ME-02 Democratic Primary: First-Choice Support</figcaption>
-          <svg class="analysis-static-chart" viewBox="0 0 680 360" role="img" aria-label="ME-02 Democratic Primary: First-Choice Support">
-            <line class="analysis-axis" x1="54" y1="30" x2="54" y2="244"></line>
-            <line class="analysis-axis" x1="54" y1="244" x2="650" y2="244"></line>
+          <svg class="analysis-static-chart analysis-first-choice-chart" viewBox="0 0 560 360" role="img" aria-label="ME-02 Democratic Primary: First-Choice Support">
+            <line class="analysis-axis" x1="54" y1="34" x2="54" y2="232"></line>
+            <line class="analysis-axis" x1="54" y1="232" x2="534" y2="232"></line>
 
-            <line class="analysis-grid" x1="54" x2="650" y1="244.0" y2="244.0"></line>
-            <text class="analysis-tick" x="46" y="248.0" text-anchor="end">0%</text>
-            <line class="analysis-grid" x1="54" x2="650" y1="186.9" y2="186.9"></line>
-            <text class="analysis-tick" x="46" y="190.9" text-anchor="end">8%</text>
-            <line class="analysis-grid" x1="54" x2="650" y1="137.0" y2="137.0"></line>
-            <text class="analysis-tick" x="46" y="141.0" text-anchor="end">15%</text>
-            <line class="analysis-grid" x1="54" x2="650" y1="87.1" y2="87.1"></line>
-            <text class="analysis-tick" x="46" y="91.1" text-anchor="end">22%</text>
-            <line class="analysis-grid" x1="54" x2="650" y1="30.0" y2="30.0"></line>
-            <text class="analysis-tick" x="46" y="34.0" text-anchor="end">30%</text>
+            <line class="analysis-grid" x1="54" x2="534" y1="232.0" y2="232.0"></line>
+            <text class="analysis-tick" x="46" y="236.0" text-anchor="end">0%</text>
+            <line class="analysis-grid" x1="54" x2="534" y1="182.5" y2="182.5"></line>
+            <text class="analysis-tick" x="46" y="186.5" text-anchor="end">10%</text>
+            <line class="analysis-grid" x1="54" x2="534" y1="133.0" y2="133.0"></line>
+            <text class="analysis-tick" x="46" y="137.0" text-anchor="end">20%</text>
+            <line class="analysis-grid" x1="54" x2="534" y1="83.5" y2="83.5"></line>
+            <text class="analysis-tick" x="46" y="87.5" text-anchor="end">30%</text>
+            <line class="analysis-grid" x1="54" x2="534" y1="34.0" y2="34.0"></line>
+            <text class="analysis-tick" x="46" y="38.0" text-anchor="end">40%</text>
 
-          <rect x="54.0" y="68.9" width="89.3" height="175.1" rx="3" fill="#0b6b67">
+          <rect x="54.0" y="110.5" width="71.7" height="121.5" rx="3" fill="#0b6b67">
             <title>Don&#x27;t know/Undecided: 24.5% first-choice support</title>
           </rect>
-          <text class="analysis-value-label" x="98.7" y="60.9" text-anchor="middle">24.5%</text>
-          <text class="analysis-bar-label analysis-x-label" transform="translate(98.7 268) rotate(-45)" text-anchor="end">Don&#x27;t know/Undecided</text>
-          <rect x="155.3" y="78.7" width="89.3" height="165.3" rx="3" fill="#c58a1b">
+          <text class="analysis-value-label first-choice-value-label" x="89.8" y="101.5" text-anchor="middle">24.5%</text>
+          <text class="analysis-bar-label analysis-x-label first-choice-x-label" transform="translate(89.8 262) rotate(-42)" text-anchor="end">Undecided</text>
+          <rect x="135.7" y="117.3" width="71.7" height="114.7" rx="3" fill="#c58a1b">
             <title>Jordan Wood: 23.2% first-choice support</title>
           </rect>
-          <text class="analysis-value-label" x="200.0" y="70.7" text-anchor="middle">23.2%</text>
-          <text class="analysis-bar-label analysis-x-label" transform="translate(200.0 268) rotate(-45)" text-anchor="end">Jordan Wood</text>
-          <rect x="256.7" y="87.3" width="89.3" height="156.7" rx="3" fill="#5369a6">
+          <text class="analysis-value-label first-choice-value-label" x="171.5" y="108.3" text-anchor="middle">23.2%</text>
+          <text class="analysis-bar-label analysis-x-label first-choice-x-label" transform="translate(171.5 262) rotate(-42)" text-anchor="end">Jordan Wood</text>
+          <rect x="217.3" y="123.3" width="71.7" height="108.7" rx="3" fill="#5369a6">
             <title>Joe Baldacci: 22.0% first-choice support</title>
           </rect>
-          <text class="analysis-value-label" x="301.3" y="79.3" text-anchor="middle">22.0%</text>
-          <text class="analysis-bar-label analysis-x-label" transform="translate(301.3 268) rotate(-45)" text-anchor="end">Joe Baldacci</text>
-          <rect x="358.0" y="125.2" width="89.3" height="118.8" rx="3" fill="#8b5e3c">
+          <text class="analysis-value-label first-choice-value-label" x="253.2" y="114.3" text-anchor="middle">22.0%</text>
+          <text class="analysis-bar-label analysis-x-label first-choice-x-label" transform="translate(253.2 262) rotate(-42)" text-anchor="end">Joe Baldacci</text>
+          <rect x="299.0" y="149.6" width="71.7" height="82.4" rx="3" fill="#8b5e3c">
             <title>Matthew Dunlap: 16.7% first-choice support</title>
           </rect>
-          <text class="analysis-value-label" x="402.7" y="117.2" text-anchor="middle">16.7%</text>
-          <text class="analysis-bar-label analysis-x-label" transform="translate(402.7 268) rotate(-45)" text-anchor="end">Matthew Dunlap</text>
-          <rect x="459.3" y="146.9" width="89.3" height="97.1" rx="3" fill="#5c8f46">
+          <text class="analysis-value-label first-choice-value-label" x="334.8" y="140.6" text-anchor="middle">16.7%</text>
+          <text class="analysis-bar-label analysis-x-label first-choice-x-label" transform="translate(334.8 262) rotate(-42)" text-anchor="end">Matthew Dunlap</text>
+          <rect x="380.7" y="164.6" width="71.7" height="67.4" rx="3" fill="#5c8f46">
             <title>Paige Loud: 13.6% first-choice support</title>
           </rect>
-          <text class="analysis-value-label" x="504.0" y="138.9" text-anchor="middle">13.6%</text>
-          <text class="analysis-bar-label analysis-x-label" transform="translate(504.0 268) rotate(-45)" text-anchor="end">Paige Loud</text>
-          <rect x="560.7" y="243.6" width="89.3" height="1.0" rx="3" fill="#b85f6a">
+          <text class="analysis-value-label first-choice-value-label" x="416.5" y="155.6" text-anchor="middle">13.6%</text>
+          <text class="analysis-bar-label analysis-x-label first-choice-x-label" transform="translate(416.5 262) rotate(-42)" text-anchor="end">Paige Loud</text>
+          <rect x="462.3" y="231.7" width="71.7" height="1.0" rx="3" fill="#b85f6a">
             <title>Another candidate: 0.1% first-choice support</title>
           </rect>
-          <text class="analysis-value-label" x="605.3" y="235.6" text-anchor="middle">0.1%</text>
-          <text class="analysis-bar-label analysis-x-label" transform="translate(605.3 268) rotate(-45)" text-anchor="end">Another candidate</text>
+          <text class="analysis-value-label first-choice-value-label" x="498.2" y="222.7" text-anchor="middle">0.1%</text>
+          <text class="analysis-bar-label analysis-x-label first-choice-x-label" transform="translate(498.2 262) rotate(-42)" text-anchor="end">Another candidate</text>
           </svg>
         </figure>
         <p>The second-choice selections among UNH poll respondents show that Baldacci has greater support than Wood among rivals. Notably, among those ranking Dunlap first, almost twice as many (34.9%) rank Baldacci second compared to Wood (19.3%).</p>
@@ -8154,23 +8515,29 @@
         </figure>
         <p>In contrast to the gubernatorial primary, the results of our simulations of the ME-02 Democratic primary are largely similar to the odds in betting markets. On both <a class="external-link" href="https://polymarket.com/event/who-will-be-the-democratic-nominee-for-me-02" target="_blank" rel="noopener noreferrer">Polymarket<span class="sr-only"> opens in a new tab</span></a> and <a class="external-link" href="https://kalshi.com/markets/kxme02d/me02-democratic-primary/kxme02d-26" target="_blank" rel="noopener noreferrer">Kalshi<span class="sr-only"> opens in a new tab</span></a>, Joe Baldacci has a 66% chance of winning, at the time of writing, and Baldacci wins 67% of our simulations.</p>
         <p>Below, we provide examples of Baldacci, Wood, and Dunlap victories.</p>
-        <p><span class="example-prose-label">Example Baldacci Victory:</span> The example below is an instance of the most common final pair of Baldacci and Wood. As is common for many simulations with Wood and Baldacci as the final pair, Wood begins with a 5% lead in first-choice share over Baldacci, but the initial lead is insufficient to offset the disparity in transfer to Baldacci following Dunlap’s elimination.</p>
+        <p><span class="example-prose-label">Example Baldacci Victory</span> The example below is an instance of the most common final pair of Baldacci and Wood. As is common for many simulations with Wood and Baldacci as the final pair, Wood begins with a 5% lead in first-choice share over Baldacci, but the initial lead is insufficient to offset the disparity in transfer to Baldacci following Dunlap’s elimination.</p>
 
         <div id="transfer-example-irv-root-me-02-democratic-primary-baldacci" class="irv-simulation-stack analysis-example-irv-stack" data-irv-data="transfer-example-irv-data-me-02-democratic-primary-baldacci"></div>
         <script type="application/json" id="transfer-example-irv-data-me-02-democratic-primary-baldacci">[{"primary": "ME-02 Democratic Primary -- Example Baldacci Victory", "total_weight": 50000.0, "candidate_colors": {"Another candidate": "#5c8f46", "Joe Baldacci": "#0b6b67", "Matthew Dunlap": "#5369a6", "Paige Loud": "#8b5e3c", "Jordan Wood": "#c58a1b"}, "candidates": [{"candidate_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood"}, {"candidate_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci"}, {"candidate_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap"}, {"candidate_id": "Paige Loud", "name": "Paige Loud", "label": "Loud"}, {"candidate_id": "Another candidate", "name": "Another candidate", "label": "Another"}], "rounds": [{"round": 1, "remaining_weight": 50000.0, "eliminated_id": "Another candidate", "eliminated_name": "Another candidate", "eliminated_label": "Another", "winner_id": null, "winner_name": null, "winner_label": null, "tallies": [{"candidate_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood", "active": true, "previously_eliminated": false, "weight": 16680.0, "percent": 33.36, "eliminated": false, "winner": false, "segments": [{"source_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood", "weight": 16680.0, "percent": 33.36}]}, {"candidate_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "active": true, "previously_eliminated": false, "weight": 14143.0, "percent": 28.286, "eliminated": false, "winner": false, "segments": [{"source_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "weight": 14143.0, "percent": 28.286}]}, {"candidate_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "active": true, "previously_eliminated": false, "weight": 10237.0, "percent": 20.474, "eliminated": false, "winner": false, "segments": [{"source_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "weight": 10237.0, "percent": 20.474}]}, {"candidate_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "active": true, "previously_eliminated": false, "weight": 8849.0, "percent": 17.698, "eliminated": false, "winner": false, "segments": [{"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 8849.0, "percent": 17.698}]}, {"candidate_id": "Another candidate", "name": "Another candidate", "label": "Another", "active": true, "previously_eliminated": false, "weight": 91.0, "percent": 0.182, "eliminated": true, "winner": false, "segments": [{"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 91.0, "percent": 0.182}]}], "transfers": [{"to_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "weight": 91.0, "percent_remaining": 0.182, "percent_eliminated": 100.0, "segments": [{"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 91.0, "percent_eliminated": 100.0}]}]}, {"round": 2, "remaining_weight": 50000.0, "eliminated_id": "Paige Loud", "eliminated_name": "Paige Loud", "eliminated_label": "Loud", "winner_id": null, "winner_name": null, "winner_label": null, "tallies": [{"candidate_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood", "active": true, "previously_eliminated": false, "weight": 16680.0, "percent": 33.36, "eliminated": false, "winner": false, "segments": [{"source_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood", "weight": 16680.0, "percent": 33.36}]}, {"candidate_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "active": true, "previously_eliminated": false, "weight": 14143.0, "percent": 28.286, "eliminated": false, "winner": false, "segments": [{"source_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "weight": 14143.0, "percent": 28.286}]}, {"candidate_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "active": true, "previously_eliminated": false, "weight": 10328.0, "percent": 20.656, "eliminated": false, "winner": false, "segments": [{"source_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "weight": 10237.0, "percent": 20.474}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 91.0, "percent": 0.182}]}, {"candidate_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "active": true, "previously_eliminated": false, "weight": 8849.0, "percent": 17.698, "eliminated": true, "winner": false, "segments": [{"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 8849.0, "percent": 17.698}]}, {"candidate_id": "Another candidate", "name": "Another candidate", "label": "Another", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}], "transfers": [{"to_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "weight": 2500.0, "percent_remaining": 5.0, "percent_eliminated": 28.251779862131315, "segments": [{"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 2500.0, "percent_eliminated": 28.251779862131315}]}, {"to_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "weight": 2233.0, "percent_remaining": 4.466, "percent_eliminated": 25.23448977285569, "segments": [{"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 2233.0, "percent_eliminated": 25.23448977285569}]}, {"to_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood", "weight": 291.0, "percent_remaining": 0.582, "percent_eliminated": 3.288507175952085, "segments": [{"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 291.0, "percent_eliminated": 3.288507175952085}]}, {"to_id": "__exhausted__", "name": "Exhausted", "label": "Exhausted", "weight": 3825.0, "percent_remaining": 7.65, "percent_eliminated": 43.22522318906091, "segments": [{"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 3825.0, "percent_eliminated": 43.22522318906091}]}]}, {"round": 3, "remaining_weight": 46175.0, "eliminated_id": "Matthew Dunlap", "eliminated_name": "Matthew Dunlap", "eliminated_label": "Dunlap", "winner_id": null, "winner_name": null, "winner_label": null, "tallies": [{"candidate_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood", "active": true, "previously_eliminated": false, "weight": 16971.0, "percent": 36.75365457498646, "eliminated": false, "winner": false, "segments": [{"source_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood", "weight": 16680.0, "percent": 36.123443421765025}, {"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 291.0, "percent": 0.6302111532214402}]}, {"candidate_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "active": true, "previously_eliminated": false, "weight": 16376.0, "percent": 35.46507850568489, "eliminated": false, "winner": false, "segments": [{"source_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "weight": 14143.0, "percent": 30.629128316188414}, {"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 2233.0, "percent": 4.835950189496481}]}, {"candidate_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "active": true, "previously_eliminated": false, "weight": 12828.0, "percent": 27.78126691932864, "eliminated": true, "winner": false, "segments": [{"source_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "weight": 10237.0, "percent": 22.170005414185166}, {"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 2500.0, "percent": 5.414185165132648}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 91.0, "percent": 0.19707634001082838}]}, {"candidate_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}, {"candidate_id": "Another candidate", "name": "Another candidate", "label": "Another", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}], "transfers": [{"to_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "weight": 5067.0, "percent_remaining": 10.97347049269085, "percent_eliminated": 39.49953227315248, "segments": [{"source_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "weight": 4505.0, "percent_eliminated": 35.118490801372}, {"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 562.0, "percent_eliminated": 4.38104147178048}]}, {"to_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood", "weight": 3003.0, "percent_remaining": 6.503519220357337, "percent_eliminated": 23.409728718428436, "segments": [{"source_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "weight": 2045.0, "percent_eliminated": 15.941690053009042}, {"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 924.0, "percent_eliminated": 7.202993451824135}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 34.0, "percent_eliminated": 0.26504521359526034}]}, {"to_id": "__exhausted__", "name": "Exhausted", "label": "Exhausted", "weight": 4758.0, "percent_remaining": 10.304277206280455, "percent_eliminated": 37.090739008419085, "segments": [{"source_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "weight": 3687.0, "percent_eliminated": 28.741814780168383}, {"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 1014.0, "percent_eliminated": 7.904583723105707}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 57.0, "percent_eliminated": 0.44434050514499535}]}]}, {"round": 4, "remaining_weight": 41417.0, "eliminated_id": null, "eliminated_name": null, "eliminated_label": null, "winner_id": "Joe Baldacci", "winner_name": "Joe Baldacci", "winner_label": "Baldacci", "tallies": [{"candidate_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood", "active": true, "previously_eliminated": false, "weight": 19974.0, "percent": 48.226573629186085, "eliminated": false, "winner": false, "segments": [{"source_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood", "weight": 16680.0, "percent": 40.273317719776905}, {"source_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "weight": 2045.0, "percent": 4.937586015404302}, {"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 1215.0, "percent": 2.9335779993722384}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 34.0, "percent": 0.08209189463263877}]}, {"candidate_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "active": true, "previously_eliminated": false, "weight": 21443.0, "percent": 51.773426370813915, "eliminated": false, "winner": true, "segments": [{"source_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "weight": 14143.0, "percent": 34.147813699688534}, {"source_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "weight": 4505.0, "percent": 10.877176038824636}, {"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 2795.0, "percent": 6.748436632300746}]}, {"candidate_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}, {"candidate_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}, {"candidate_id": "Another candidate", "name": "Another candidate", "label": "Another", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}], "transfers": []}]}]</script>
-        <p><span class="example-prose-label">Example Wood Victory:</span> The example Wood victory below is consistent with nearly all Wood victories in the scatter plots, with Wood’s first-round margin holding up to vote transfers to Baldacci. In the example, Wood begins with a 9% lead in first-choice share and narrowly defeats Baldacci 41.4% to 41.1% in the final round.</p>
+        <p><span class="example-prose-label">Example Wood Victory</span> The example Wood victory below is consistent with nearly all Wood victories in the scatter plots, with Wood’s first-round margin holding up to vote transfers to Baldacci. In the example, Wood begins with a 9% lead in first-choice share and narrowly defeats Baldacci 41.4% to 41.1% in the final round.</p>
 
         <div id="transfer-example-irv-root-me-02-democratic-primary-wood" class="irv-simulation-stack analysis-example-irv-stack" data-irv-data="transfer-example-irv-data-me-02-democratic-primary-wood"></div>
         <script type="application/json" id="transfer-example-irv-data-me-02-democratic-primary-wood">[{"primary": "ME-02 Democratic Primary -- Example Wood Victory", "total_weight": 50000.0, "candidate_colors": {"Another candidate": "#5c8f46", "Joe Baldacci": "#0b6b67", "Matthew Dunlap": "#5369a6", "Paige Loud": "#8b5e3c", "Jordan Wood": "#c58a1b"}, "candidates": [{"candidate_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood"}, {"candidate_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci"}, {"candidate_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap"}, {"candidate_id": "Paige Loud", "name": "Paige Loud", "label": "Loud"}, {"candidate_id": "Another candidate", "name": "Another candidate", "label": "Another"}], "rounds": [{"round": 1, "remaining_weight": 50000.0, "eliminated_id": "Another candidate", "eliminated_name": "Another candidate", "eliminated_label": "Another", "winner_id": null, "winner_name": null, "winner_label": null, "tallies": [{"candidate_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood", "active": true, "previously_eliminated": false, "weight": 17129.0, "percent": 34.258, "eliminated": false, "winner": false, "segments": [{"source_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood", "weight": 17129.0, "percent": 34.258}]}, {"candidate_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "active": true, "previously_eliminated": false, "weight": 12669.0, "percent": 25.338, "eliminated": false, "winner": false, "segments": [{"source_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "weight": 12669.0, "percent": 25.338}]}, {"candidate_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "active": true, "previously_eliminated": false, "weight": 11188.0, "percent": 22.376, "eliminated": false, "winner": false, "segments": [{"source_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "weight": 11188.0, "percent": 22.376}]}, {"candidate_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "active": true, "previously_eliminated": false, "weight": 8947.0, "percent": 17.894, "eliminated": false, "winner": false, "segments": [{"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 8947.0, "percent": 17.894}]}, {"candidate_id": "Another candidate", "name": "Another candidate", "label": "Another", "active": true, "previously_eliminated": false, "weight": 67.0, "percent": 0.134, "eliminated": true, "winner": false, "segments": [{"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 67.0, "percent": 0.134}]}], "transfers": [{"to_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "weight": 67.0, "percent_remaining": 0.134, "percent_eliminated": 100.0, "segments": [{"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 67.0, "percent_eliminated": 100.0}]}]}, {"round": 2, "remaining_weight": 50000.0, "eliminated_id": "Paige Loud", "eliminated_name": "Paige Loud", "eliminated_label": "Loud", "winner_id": null, "winner_name": null, "winner_label": null, "tallies": [{"candidate_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood", "active": true, "previously_eliminated": false, "weight": 17129.0, "percent": 34.258, "eliminated": false, "winner": false, "segments": [{"source_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood", "weight": 17129.0, "percent": 34.258}]}, {"candidate_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "active": true, "previously_eliminated": false, "weight": 12669.0, "percent": 25.338, "eliminated": false, "winner": false, "segments": [{"source_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "weight": 12669.0, "percent": 25.338}]}, {"candidate_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "active": true, "previously_eliminated": false, "weight": 11255.0, "percent": 22.51, "eliminated": false, "winner": false, "segments": [{"source_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "weight": 11188.0, "percent": 22.376}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 67.0, "percent": 0.134}]}, {"candidate_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "active": true, "previously_eliminated": false, "weight": 8947.0, "percent": 17.894, "eliminated": true, "winner": false, "segments": [{"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 8947.0, "percent": 17.894}]}, {"candidate_id": "Another candidate", "name": "Another candidate", "label": "Another", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}], "transfers": [{"to_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "weight": 2387.0, "percent_remaining": 4.774, "percent_eliminated": 26.67933385492344, "segments": [{"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 2387.0, "percent_eliminated": 26.67933385492344}]}, {"to_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "weight": 2361.0, "percent_remaining": 4.722, "percent_eliminated": 26.388733653738683, "segments": [{"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 2361.0, "percent_eliminated": 26.388733653738683}]}, {"to_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood", "weight": 367.0, "percent_remaining": 0.734, "percent_eliminated": 4.10193360903096, "segments": [{"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 367.0, "percent_eliminated": 4.10193360903096}]}, {"to_id": "__exhausted__", "name": "Exhausted", "label": "Exhausted", "weight": 3832.0, "percent_remaining": 7.664, "percent_eliminated": 42.82999888230692, "segments": [{"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 3832.0, "percent_eliminated": 42.82999888230692}]}]}, {"round": 3, "remaining_weight": 46168.0, "eliminated_id": "Matthew Dunlap", "eliminated_name": "Matthew Dunlap", "eliminated_label": "Dunlap", "winner_id": null, "winner_name": null, "winner_label": null, "tallies": [{"candidate_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood", "active": true, "previously_eliminated": false, "weight": 17496.0, "percent": 37.89637844394386, "eliminated": false, "winner": false, "segments": [{"source_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood", "weight": 17129.0, "percent": 37.10145555363022}, {"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 367.0, "percent": 0.7949228903136372}]}, {"candidate_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "active": true, "previously_eliminated": false, "weight": 15030.0, "percent": 32.555016461618436, "eliminated": false, "winner": false, "segments": [{"source_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "weight": 12669.0, "percent": 27.4410847340149}, {"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 2361.0, "percent": 5.113931727603535}]}, {"candidate_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "active": true, "previously_eliminated": false, "weight": 13642.0, "percent": 29.548605094437704, "eliminated": true, "winner": false, "segments": [{"source_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "weight": 11188.0, "percent": 24.233235141223357}, {"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 2387.0, "percent": 5.170247790677526}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 67.0, "percent": 0.14512216253682203}]}, {"candidate_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}, {"candidate_id": "Another candidate", "name": "Another candidate", "label": "Another", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}], "transfers": [{"to_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "weight": 5497.0, "percent_remaining": 11.906515335297176, "percent_eliminated": 40.29467819967746, "segments": [{"source_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "weight": 4984.0, "percent_eliminated": 36.534232517226215}, {"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 512.0, "percent_eliminated": 3.75311537897669}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 1.0, "percent_eliminated": 0.007330303474563847}]}, {"to_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood", "weight": 3226.0, "percent_remaining": 6.987523826026685, "percent_eliminated": 23.64755900894297, "segments": [{"source_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "weight": 2330.0, "percent_eliminated": 17.079607095733763}, {"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 874.0, "percent_eliminated": 6.406685236768802}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 22.0, "percent_eliminated": 0.16126667644040463}]}, {"to_id": "__exhausted__", "name": "Exhausted", "label": "Exhausted", "weight": 4919.0, "percent_remaining": 10.654565933113846, "percent_eliminated": 36.05776279137957, "segments": [{"source_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "weight": 3874.0, "percent_eliminated": 28.397595660460343}, {"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 1001.0, "percent_eliminated": 7.337633778038411}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 44.0, "percent_eliminated": 0.32253335288080925}]}]}, {"round": 4, "remaining_weight": 41249.0, "eliminated_id": null, "eliminated_name": null, "eliminated_label": null, "winner_id": "Jordan Wood", "winner_name": "Jordan Wood", "winner_label": "Wood", "tallies": [{"candidate_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood", "active": true, "previously_eliminated": false, "weight": 20722.0, "percent": 50.2363693665301, "eliminated": false, "winner": true, "segments": [{"source_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood", "weight": 17129.0, "percent": 41.5258551722466}, {"source_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "weight": 2330.0, "percent": 5.6486217847705396}, {"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 1241.0, "percent": 3.008557783218987}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 22.0, "percent": 0.05333462629397076}]}, {"candidate_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "active": true, "previously_eliminated": false, "weight": 20527.0, "percent": 49.7636306334699, "eliminated": false, "winner": false, "segments": [{"source_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "weight": 12669.0, "percent": 30.71347184174162}, {"source_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "weight": 4984.0, "percent": 12.082717156779559}, {"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 2873.0, "percent": 6.965017333753545}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 1.0, "percent": 0.002424301195180489}]}, {"candidate_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}, {"candidate_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}, {"candidate_id": "Another candidate", "name": "Another candidate", "label": "Another", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}], "transfers": []}]}]</script>
-        <p><span class="example-prose-label">Example Dunlap Victory:</span> The Dunlap victory below is an instance of a Dunlap-Wood final round. All simulations featuring this final round, including the one below, feature initial Wood leads in the first round but strong vote transfers to Dunlap in elimination rounds. In the example below, while Wood begins with a 8.7% lead in first-choice share, Wood gains only 6.1% through vote transfers, whereas Dunlap gains 15.8%, over twice as much,  primarily from Baldacci’s elimination.</p>
+        <p><span class="example-prose-label">Example Dunlap Victory</span> The Dunlap victory below is an instance of a Dunlap-Wood final round. All simulations featuring this final round, including the one below, feature initial Wood leads in the first round but strong vote transfers to Dunlap in elimination rounds. In the example below, while Wood begins with a 8.7% lead in first-choice share, Wood gains only 6.1% through vote transfers, whereas Dunlap gains 15.8%, over twice as much,  primarily from Baldacci’s elimination.</p>
 
         <div id="transfer-example-irv-root-me-02-democratic-primary-dunlap" class="irv-simulation-stack analysis-example-irv-stack" data-irv-data="transfer-example-irv-data-me-02-democratic-primary-dunlap"></div>
         <script type="application/json" id="transfer-example-irv-data-me-02-democratic-primary-dunlap">[{"primary": "ME-02 Democratic Primary -- Example Dunlap Victory", "total_weight": 50000.0, "candidate_colors": {"Another candidate": "#5c8f46", "Joe Baldacci": "#0b6b67", "Matthew Dunlap": "#5369a6", "Paige Loud": "#8b5e3c", "Jordan Wood": "#c58a1b"}, "candidates": [{"candidate_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood"}, {"candidate_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap"}, {"candidate_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci"}, {"candidate_id": "Paige Loud", "name": "Paige Loud", "label": "Loud"}, {"candidate_id": "Another candidate", "name": "Another candidate", "label": "Another"}], "rounds": [{"round": 1, "remaining_weight": 50000.0, "eliminated_id": "Another candidate", "eliminated_name": "Another candidate", "eliminated_label": "Another", "winner_id": null, "winner_name": null, "winner_label": null, "tallies": [{"candidate_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood", "active": true, "previously_eliminated": false, "weight": 16739.0, "percent": 33.478, "eliminated": false, "winner": false, "segments": [{"source_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood", "weight": 16739.0, "percent": 33.478}]}, {"candidate_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "active": true, "previously_eliminated": false, "weight": 12397.0, "percent": 24.794, "eliminated": false, "winner": false, "segments": [{"source_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "weight": 12397.0, "percent": 24.794}]}, {"candidate_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "active": true, "previously_eliminated": false, "weight": 11099.0, "percent": 22.198, "eliminated": false, "winner": false, "segments": [{"source_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "weight": 11099.0, "percent": 22.198}]}, {"candidate_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "active": true, "previously_eliminated": false, "weight": 9654.0, "percent": 19.308, "eliminated": false, "winner": false, "segments": [{"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 9654.0, "percent": 19.308}]}, {"candidate_id": "Another candidate", "name": "Another candidate", "label": "Another", "active": true, "previously_eliminated": false, "weight": 111.0, "percent": 0.222, "eliminated": true, "winner": false, "segments": [{"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 111.0, "percent": 0.222}]}], "transfers": [{"to_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "weight": 111.0, "percent_remaining": 0.222, "percent_eliminated": 100.0, "segments": [{"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 111.0, "percent_eliminated": 100.0}]}]}, {"round": 2, "remaining_weight": 50000.0, "eliminated_id": "Paige Loud", "eliminated_name": "Paige Loud", "eliminated_label": "Loud", "winner_id": null, "winner_name": null, "winner_label": null, "tallies": [{"candidate_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood", "active": true, "previously_eliminated": false, "weight": 16739.0, "percent": 33.478, "eliminated": false, "winner": false, "segments": [{"source_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood", "weight": 16739.0, "percent": 33.478}]}, {"candidate_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "active": true, "previously_eliminated": false, "weight": 12508.0, "percent": 25.016, "eliminated": false, "winner": false, "segments": [{"source_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "weight": 12397.0, "percent": 24.794}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 111.0, "percent": 0.222}]}, {"candidate_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "active": true, "previously_eliminated": false, "weight": 11099.0, "percent": 22.198, "eliminated": false, "winner": false, "segments": [{"source_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "weight": 11099.0, "percent": 22.198}]}, {"candidate_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "active": true, "previously_eliminated": false, "weight": 9654.0, "percent": 19.308, "eliminated": true, "winner": false, "segments": [{"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 9654.0, "percent": 19.308}]}, {"candidate_id": "Another candidate", "name": "Another candidate", "label": "Another", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}], "transfers": [{"to_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "weight": 3166.0, "percent_remaining": 6.332, "percent_eliminated": 32.794696498860574, "segments": [{"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 3166.0, "percent_eliminated": 32.794696498860574}]}, {"to_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "weight": 2706.0, "percent_remaining": 5.412, "percent_eliminated": 28.02983219390926, "segments": [{"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 2706.0, "percent_eliminated": 28.02983219390926}]}, {"to_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood", "weight": 503.0, "percent_remaining": 1.006, "percent_eliminated": 5.210275533457634, "segments": [{"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 503.0, "percent_eliminated": 5.210275533457634}]}, {"to_id": "__exhausted__", "name": "Exhausted", "label": "Exhausted", "weight": 3279.0, "percent_remaining": 6.558, "percent_eliminated": 33.96519577377253, "segments": [{"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 3279.0, "percent_eliminated": 33.96519577377253}]}]}, {"round": 3, "remaining_weight": 46721.0, "eliminated_id": "Joe Baldacci", "eliminated_name": "Joe Baldacci", "eliminated_label": "Baldacci", "winner_id": null, "winner_name": null, "winner_label": null, "tallies": [{"candidate_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood", "active": true, "previously_eliminated": false, "weight": 17242.0, "percent": 36.90417585240042, "eliminated": false, "winner": false, "segments": [{"source_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood", "weight": 16739.0, "percent": 35.82757218381456}, {"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 503.0, "percent": 1.0766036685858607}]}, {"candidate_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "active": true, "previously_eliminated": false, "weight": 15214.0, "percent": 32.563515335716275, "eliminated": false, "winner": false, "segments": [{"source_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "weight": 12397.0, "percent": 26.534106718606193}, {"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 2706.0, "percent": 5.791828085871449}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 111.0, "percent": 0.23758053123862932}]}, {"candidate_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "active": true, "previously_eliminated": false, "weight": 14265.0, "percent": 30.532308811883308, "eliminated": true, "winner": false, "segments": [{"source_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "weight": 11099.0, "percent": 23.755912758716637}, {"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 3166.0, "percent": 6.77639605316667}]}, {"candidate_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}, {"candidate_id": "Another candidate", "name": "Another candidate", "label": "Another", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}], "transfers": [{"to_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "weight": 5105.0, "percent_remaining": 10.926564071830654, "percent_eliminated": 35.78689099193831, "segments": [{"source_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "weight": 5044.0, "percent_eliminated": 35.359270942867155}, {"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 61.0, "percent_eliminated": 0.4276200490711532}]}, {"to_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood", "weight": 2583.0, "percent_remaining": 5.528563172877293, "percent_eliminated": 18.107255520504733, "segments": [{"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 1505.0, "percent_eliminated": 10.550297932001403}, {"source_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "weight": 1078.0, "percent_eliminated": 7.55695758850333}]}, {"to_id": "__exhausted__", "name": "Exhausted", "label": "Exhausted", "weight": 6577.0, "percent_remaining": 14.07718156717536, "percent_eliminated": 46.105853487556956, "segments": [{"source_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "weight": 4977.0, "percent_eliminated": 34.889589905362776}, {"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 1600.0, "percent_eliminated": 11.216263582194182}]}]}, {"round": 4, "remaining_weight": 40144.0, "eliminated_id": null, "eliminated_name": null, "eliminated_label": null, "winner_id": "Matthew Dunlap", "winner_name": "Matthew Dunlap", "winner_label": "Dunlap", "tallies": [{"candidate_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood", "active": true, "previously_eliminated": false, "weight": 19825.0, "percent": 49.384715025906736, "eliminated": false, "winner": false, "segments": [{"source_id": "Jordan Wood", "name": "Jordan Wood", "label": "Wood", "weight": 16739.0, "percent": 41.6973893981666}, {"source_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "weight": 1078.0, "percent": 2.6853328019131126}, {"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 2008.0, "percent": 5.001992825827022}]}, {"candidate_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "active": true, "previously_eliminated": false, "weight": 20319.0, "percent": 50.615284974093264, "eliminated": false, "winner": true, "segments": [{"source_id": "Matthew Dunlap", "name": "Matthew Dunlap", "label": "Dunlap", "weight": 12397.0, "percent": 30.8813272220008}, {"source_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "weight": 5044.0, "percent": 12.564766839378239}, {"source_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "weight": 2767.0, "percent": 6.892686329214826}, {"source_id": "Another candidate", "name": "Another candidate", "label": "Another", "weight": 111.0, "percent": 0.27650458349940216}]}, {"candidate_id": "Joe Baldacci", "name": "Joe Baldacci", "label": "Baldacci", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}, {"candidate_id": "Paige Loud", "name": "Paige Loud", "label": "Loud", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}, {"candidate_id": "Another candidate", "name": "Another candidate", "label": "Another", "active": false, "previously_eliminated": true, "weight": 0.0, "percent": 0.0, "eliminated": false, "winner": false, "segments": []}], "transfers": []}]}]</script>
       </section>
       <section id="simulation-methodology" class="report-section report-section-major analysis-section">
         <h2>Simulation Methodology</h2>
-        <p>We simulate instant-runoff elections by using the UNH ranked-choice poll data to estimate a preference model of ranked choices, and sample elections from that model. We use the contextual choice model of <a class="external-link" href="https://arxiv.org/abs/2306.01801" target="_blank" rel="noopener noreferrer">Awadeldkarim et al.<span class="sr-only"> opens in a new tab</span></a>, which accounts for strong correlations in candidate co-occurrences in ballots, such as cross-endorsements. To sample (simulate) an individual hypothetical election, we first sample a choice model from the posterior over choice-model parameters given the ranked polling data. We then use the choice model instantiation to sample ballots for the hypothetical full election and use the instant-runoff voting algorithm, which <a class="external-link" href="https://www.maine.gov/sos/elections-voting/ranked-choice-voting-frequently-asked-questions" target="_blank" rel="noopener noreferrer">Maine<span class="sr-only"> opens in a new tab</span></a> uses. For the ME-02 primary, we sample 50,000 ballots per election (the last primary in <a class="external-link" href="https://ballotpedia.org/Maine%27s_2nd_Congressional_District_election_\(June_12,_2018_Democratic_primary\" target="_blank" rel="noopener noreferrer">2018<span class="sr-only"> opens in a new tab</span></a>) had 45,211 voters), and for the Democratic gubernatorial primary, we sample 100,000 ballots (the <a class="external-link" href="https://en.wikipedia.org/wiki/2018_Maine_gubernatorial_election" target="_blank" rel="noopener noreferrer">2018 Democratic gubernatorial primary<span class="sr-only"> opens in a new tab</span></a>, the most recent primary with multiple candidates, had 132,250 voters). The main source of fluctuations in outcomes is not in the sampled ballots from a given model, but in the sampling of the model instance from the model posterior. In both competitive primaries, we sampled 1,000 model instances, leading to 1,000 simulated elections for each primary.</p>
+        <p>We simulate instant-runoff elections by using the UNH ranked-choice poll data to estimate a preference model of ranked choices, and sample elections from that model. We use the contextual choice model of <a class="external-link" href="https://dl.acm.org/doi/10.1145/3580305.3599484" target="_blank" rel="noopener noreferrer">Awadeldkarim et al. [2023]<span class="sr-only"> opens in a new tab</span></a><sup id="citation-ref-1" class="citation-ref"><a href="#citation-1" aria-label="Citation 1">1</a></sup>, which accounts for strong correlations in candidate co-occurrences in ballots, such as cross-endorsements. To sample (simulate) an individual hypothetical election, we first sample a choice model from the posterior over choice-model parameters given the ranked polling data. We then use the choice model instantiation to sample ballots for the hypothetical full election and use the instant-runoff voting algorithm, which <a class="external-link" href="https://www.maine.gov/sos/elections-voting/ranked-choice-voting-frequently-asked-questions" target="_blank" rel="noopener noreferrer">Maine<span class="sr-only"> opens in a new tab</span></a> uses. For the ME-02 primary, we sample 50,000 ballots per election (the last primary in <a class="external-link" href="https://ballotpedia.org/Maine%27s_2nd_Congressional_District_election_(June_12,_2018_Democratic_primary)" target="_blank" rel="noopener noreferrer">2018<span class="sr-only"> opens in a new tab</span></a> had 45,211 voters), and for the Democratic gubernatorial primary, we sample 100,000 ballots (the <a class="external-link" href="https://en.wikipedia.org/wiki/2018_Maine_gubernatorial_election" target="_blank" rel="noopener noreferrer">2018 Democratic gubernatorial primary<span class="sr-only"> opens in a new tab</span></a>, the most recent primary with multiple candidates, had 132,250 voters). The main source of fluctuations in outcomes is not in the sampled ballots from a given model, but in the sampling of the model instance from the model posterior. In both competitive primaries, we sampled 1,000 model instances, leading to 1,000 simulated elections for each primary.</p>
         <p>The UNH Democratic gubernatorial poll spanned 506 voters, while the Democratic ME-02 poll spanned 238. Of note, as described by the UNH Survey Center (paragraph four of the “Pine Tree State Poll Methodology” section of the <a class="external-link" href="https://scholars.unh.edu/cgi/viewcontent.cgi?article=1929&amp;context=survey_center_polls" target="_blank" rel="noopener noreferrer">report<span class="sr-only"> opens in a new tab</span></a>), the UNH polls are weighted to be representative of the US census population of Maine and do not include any modeling of voter turnout. As such, all statements about forecasting should be interpreted more as statements of candidate support in the Maine population rather than specific statements about ballot box outcome. For more details or for questions, please contact David Liu at <a class="external-link" href="mailto:davidliu@cornell.edu" target="_blank" rel="noopener noreferrer">davidliu@cornell.edu<span class="sr-only"> opens in a new tab</span></a>.</p>
+        <div class="citation-notes" aria-label="Citations">
+          <h3>Citation</h3>
+          <ol>
+          <li id="citation-1">Amel Awadelkarim, Arjun Seshadri, Itai Ashlagi, Irene Lo, and Johan Ugander. 2023. Rank-heterogeneous Preference Models for School Choice. In <em>KDD ’23</em>. ACM, New York, NY, USA, 47–56.</li>
+          </ol>
+        </div>
       </section>
     </main>
     <footer>
@@ -8454,13 +8821,13 @@
         }] : []
       };
       const tallies = [...round.tallies, exhaustedTally];
-      const width = 540;
-      const height = 300;
-      const margin = { top: 18, right: 16, bottom: 62, left: 40 };
+      const width = 500;
+      const height = 292;
+      const margin = { top: 18, right: 14, bottom: 58, left: 38 };
       const plotWidth = width - margin.left - margin.right;
       const plotHeight = height - margin.top - margin.bottom;
-      const barGap = 8;
-      const barWidth = Math.max(20, (plotWidth - barGap * Math.max(0, tallies.length - 1)) / Math.max(1, tallies.length));
+      const barGap = 7;
+      const barWidth = Math.max(17, (plotWidth - barGap * Math.max(0, tallies.length - 1)) / Math.max(1, tallies.length));
       const xFor = (index) => margin.left + index * (barWidth + barGap);
       const yFor = (percent) => margin.top + plotHeight - (Math.min(100, percent) / 100) * plotHeight;
 
@@ -9172,8 +9539,25 @@
       return { serialized: parts.join(""), width, height };
     }
 
+    function copyIconSvg() {
+      return '<svg aria-hidden="true" viewBox="0 0 24 24"><rect x="9" y="9" width="10" height="10" rx="2"></rect><path d="M5 15V7a2 2 0 0 1 2-2h8"></path></svg><span class="sr-only">Copy figure</span>';
+    }
+
+    function downloadIconSvg() {
+      return '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 4v10"></path><path d="m8 10 4 4 4-4"></path><path d="M5 20h14"></path></svg><span class="sr-only">Download SVG</span>';
+    }
+
+    function setButtonStatus(button, message) {
+      button.textContent = message;
+    }
+
+    function restoreButton(button, originalHtml) {
+      button.innerHTML = originalHtml;
+      button.disabled = false;
+    }
+
     async function copySvgFigure(svg, button) {
-      const originalText = button.textContent;
+      const originalHtml = button.dataset.defaultHtml || button.innerHTML;
       button.disabled = true;
       try {
         const composed = composedSingleSvgFigure(svg);
@@ -9183,20 +9567,19 @@
             await navigator.clipboard.write([
               new ClipboardItem({ "image/png": pngBlob })
             ]);
-            button.textContent = "Copied";
+            setButtonStatus(button, "Copied");
             return;
           }
         }
 
         await navigator.clipboard.writeText(composed.serialized);
-        button.textContent = "Copied SVG";
+        setButtonStatus(button, "Copied");
       } catch (error) {
         console.error("Unable to copy figure", error);
-        button.textContent = "Copy failed";
+        setButtonStatus(button, "Copy failed");
       } finally {
         window.setTimeout(() => {
-          button.textContent = originalText;
-          button.disabled = false;
+          restoreButton(button, originalHtml);
         }, 1500);
       }
     }
@@ -9228,7 +9611,7 @@
     }
 
     async function downloadPngFigure(svg, button) {
-      const originalText = button.textContent;
+      const originalHtml = button.dataset.defaultHtml || button.innerHTML;
       button.disabled = true;
       try {
         const clone = inlineSvgStyles(svg);
@@ -9238,38 +9621,36 @@
         const serialized = new XMLSerializer().serializeToString(clone);
         const pngBlob = await serializedSvgToPngBlob(serialized, width, height, 4);
         downloadBlob(pngBlob, figureFilename(svg.parentElement, "png"));
-        button.textContent = "Downloaded";
+        setButtonStatus(button, "Downloaded");
       } catch (error) {
         console.error("Unable to download figure", error);
-        button.textContent = "Download failed";
+        setButtonStatus(button, "Download failed");
       } finally {
         window.setTimeout(() => {
-          button.textContent = originalText;
-          button.disabled = false;
+          restoreButton(button, originalHtml);
         }, 1500);
       }
     }
 
     async function downloadSvgFigure(svg, button) {
-      const originalText = button.textContent;
+      const originalHtml = button.dataset.defaultHtml || button.innerHTML;
       button.disabled = true;
       try {
         const composed = composedSingleSvgFigure(svg);
         downloadText(composed.serialized, figureFilename(svg.parentElement, "svg"), "image/svg+xml;charset=utf-8");
-        button.textContent = "Downloaded";
+        setButtonStatus(button, "Downloaded");
       } catch (error) {
         console.error("Unable to download SVG", error);
-        button.textContent = "Download failed";
+        setButtonStatus(button, "Download failed");
       } finally {
         window.setTimeout(() => {
-          button.textContent = originalText;
-          button.disabled = false;
+          restoreButton(button, originalHtml);
         }, 1500);
       }
     }
 
     async function copyTableFigure(figure, button) {
-      const originalText = button.textContent;
+      const originalHtml = button.dataset.defaultHtml || button.innerHTML;
       button.disabled = true;
       try {
         const composed = composedTableFigureSvg(figure);
@@ -9279,43 +9660,41 @@
             await navigator.clipboard.write([
               new ClipboardItem({ "image/png": pngBlob })
             ]);
-            button.textContent = "Copied";
+            setButtonStatus(button, "Copied");
             return;
           }
         }
         await navigator.clipboard.writeText(composed.serialized);
-        button.textContent = "Copied SVG";
+        setButtonStatus(button, "Copied");
       } catch (error) {
         console.error("Unable to copy table figure", error);
-        button.textContent = "Copy failed";
+        setButtonStatus(button, "Copy failed");
       } finally {
         window.setTimeout(() => {
-          button.textContent = originalText;
-          button.disabled = false;
+          restoreButton(button, originalHtml);
         }, 1500);
       }
     }
 
     async function downloadTableFigureSvg(figure, button) {
-      const originalText = button.textContent;
+      const originalHtml = button.dataset.defaultHtml || button.innerHTML;
       button.disabled = true;
       try {
         const composed = composedTableFigureSvg(figure);
         downloadText(composed.serialized, figureFilename(figure, "svg"), "image/svg+xml;charset=utf-8");
-        button.textContent = "Downloaded";
+        setButtonStatus(button, "Downloaded");
       } catch (error) {
         console.error("Unable to download table SVG", error);
-        button.textContent = "Download failed";
+        setButtonStatus(button, "Download failed");
       } finally {
         window.setTimeout(() => {
-          button.textContent = originalText;
-          button.disabled = false;
+          restoreButton(button, originalHtml);
         }, 1500);
       }
     }
 
     async function copyTransferGridFigure(figure, button) {
-      const originalText = button.textContent;
+      const originalHtml = button.dataset.defaultHtml || button.innerHTML;
       button.disabled = true;
       try {
         const composed = composedTransferGridSvg(figure);
@@ -9325,57 +9704,54 @@
             await navigator.clipboard.write([
               new ClipboardItem({ "image/png": pngBlob })
             ]);
-            button.textContent = "Copied";
+            setButtonStatus(button, "Copied");
             return;
           }
         }
 
         await navigator.clipboard.writeText(composed.serialized);
-        button.textContent = "Copied SVG";
+        setButtonStatus(button, "Copied");
       } catch (error) {
         console.error("Unable to copy transfer grid", error);
-        button.textContent = "Copy failed";
+        setButtonStatus(button, "Copy failed");
       } finally {
         window.setTimeout(() => {
-          button.textContent = originalText;
-          button.disabled = false;
+          restoreButton(button, originalHtml);
         }, 1500);
       }
     }
 
     async function downloadTransferGridPng(figure, button) {
-      const originalText = button.textContent;
+      const originalHtml = button.dataset.defaultHtml || button.innerHTML;
       button.disabled = true;
       try {
         const composed = composedTransferGridSvg(figure);
         const pngBlob = await serializedSvgToPngBlob(composed.serialized, composed.width, composed.height, 4);
         downloadBlob(pngBlob, figureFilename(figure, "png"));
-        button.textContent = "Downloaded";
+        setButtonStatus(button, "Downloaded");
       } catch (error) {
         console.error("Unable to download transfer grid", error);
-        button.textContent = "Download failed";
+        setButtonStatus(button, "Download failed");
       } finally {
         window.setTimeout(() => {
-          button.textContent = originalText;
-          button.disabled = false;
+          restoreButton(button, originalHtml);
         }, 1500);
       }
     }
 
     async function downloadTransferGridSvg(figure, button) {
-      const originalText = button.textContent;
+      const originalHtml = button.dataset.defaultHtml || button.innerHTML;
       button.disabled = true;
       try {
         const composed = composedTransferGridSvg(figure);
         downloadText(composed.serialized, figureFilename(figure, "svg"), "image/svg+xml;charset=utf-8");
-        button.textContent = "Downloaded";
+        setButtonStatus(button, "Downloaded");
       } catch (error) {
         console.error("Unable to download transfer SVG", error);
-        button.textContent = "Download failed";
+        setButtonStatus(button, "Download failed");
       } finally {
         window.setTimeout(() => {
-          button.textContent = originalText;
-          button.disabled = false;
+          restoreButton(button, originalHtml);
         }, 1500);
       }
     }
@@ -9389,15 +9765,19 @@
       const copyButton = document.createElement("button");
       copyButton.className = "copy-figure-button";
       copyButton.type = "button";
-      copyButton.textContent = copyLabel || "Copy figure";
+      copyButton.innerHTML = copyIconSvg();
+      copyButton.dataset.defaultHtml = copyButton.innerHTML;
       copyButton.setAttribute("aria-label", "Copy this figure to the clipboard");
+      copyButton.setAttribute("title", copyLabel || "Copy figure");
       copyButton.addEventListener("click", copyHandler);
 
       const downloadButton = document.createElement("button");
       downloadButton.className = "download-figure-button";
       downloadButton.type = "button";
-      downloadButton.textContent = "Download SVG";
+      downloadButton.innerHTML = downloadIconSvg();
+      downloadButton.dataset.defaultHtml = downloadButton.innerHTML;
       downloadButton.setAttribute("aria-label", "Download this figure as a high-quality SVG");
+      downloadButton.setAttribute("title", "Download SVG");
       downloadButton.addEventListener("click", downloadSvgHandler);
 
       controls.append(copyButton, downloadButton);
